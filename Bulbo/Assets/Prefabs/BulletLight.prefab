@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8093014513673747536}
   - component: {fileID: 4247172440077311226}
   - component: {fileID: -4881593983225719323}
+  - component: {fileID: -3187148779466025738}
   m_Layer: 0
   m_Name: BulletLight
   m_TagString: Untagged
@@ -136,3 +137,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-3187148779466025738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7005326552112720979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6203ab637d59b704292c877ff661b377, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
