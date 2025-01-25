@@ -6,17 +6,22 @@ public class CharacterMovement : MonoBehaviour
 {
     PlayerInput playerInput;
     InputAction moveAction;
+    InputAction attackAction;
     [SerializeField]
-    private float speed;
+    private float speed = 3;
+    private Gun gun;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         playerInput = GetComponent<PlayerInput>();
+        gun = GetComponent<Gun>();
+
         moveAction = playerInput.actions.FindAction("Move");
+        attackAction = playerInput.actions.FindAction("Attack");
+
+        attackAction.performed += _ => gun.Shoot();
     }
 
-    // Update is called once per frame
     void Update()
     {
         MovePlayer();
