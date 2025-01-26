@@ -563,9 +563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63d8d4b8e16b1ef4eabd7148d2baa28d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 15
-  spawnTimer: 5
-  maxSpawner: 5
+  spawnerAttributeSO: {fileID: 11400000, guid: 5cdde1acc17ce614ea173675e61dc60e, type: 2}
   enemySpawnerPrefab: {fileID: 4665836023122946604, guid: 1b5accf6eab3a18449cf911f8b38a3e3, type: 3}
 --- !u!1 &832575517
 GameObject:
