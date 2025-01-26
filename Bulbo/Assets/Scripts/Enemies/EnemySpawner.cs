@@ -7,11 +7,12 @@ public class EnemySpawner : MonoBehaviour
     private GameObject enemyPrefab;
     void Start()
     {
-        StartCoroutine(spawnEnemy(5, null));
+        StartCoroutine(spawnEnemy(5, enemyPrefab));
     }
 
     IEnumerator spawnEnemy(float interval, GameObject enemy) {
         yield return new WaitForSeconds(interval);
-        Debug.Log("create enemy");
+        Vector3 spawnPosition = transform.position;
+        GameObject spawnedEnemy = Instantiate(enemy, spawnPosition, Quaternion.identity);
     }
 }

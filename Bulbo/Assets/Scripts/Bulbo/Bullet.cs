@@ -26,7 +26,6 @@ public class Bullet : MonoBehaviour
     public void setDestinationPosition(Vector3 position)
     {
         destinationPoint = position;
-        Debug.Log(destinationPoint);
     }
 
     IEnumerator removeBullet() {

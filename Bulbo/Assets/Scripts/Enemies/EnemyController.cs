@@ -1,16 +1,22 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private Vector3 targetPosition = Vector3.zero;
     void Start()
     {
-        
+        StartCoroutine(moveEnemy());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator moveEnemy()
     {
-        
+        while (Vector3.Distance(transform.position, targetPosition) > 1f)
+        {
+            Vector2 moveDirection = targetPosition - transform.position;
+            transform.LookAt(Vector3.zero);
+            transform.position = Vector3.Lerp(transform.position, targetPosition, 0.1f);
+            yield return new WaitForSeconds(1);
+        }
     }
 }
