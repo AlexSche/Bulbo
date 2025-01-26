@@ -971,6 +971,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bulbo
       objectReference: {fileID: 0}
+    - target: {fileID: 3820117116933585302, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0013
+      objectReference: {fileID: 0}
+    - target: {fileID: 3820117116933585302, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.00302
+      objectReference: {fileID: 0}
+    - target: {fileID: 3820117116933585302, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.00901
+      objectReference: {fileID: 0}
+    - target: {fileID: 7499158957720474022, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.00163
+      objectReference: {fileID: 0}
+    - target: {fileID: 7499158957720474022, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00299
+      objectReference: {fileID: 0}
+    - target: {fileID: 7499158957720474022, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.00885
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

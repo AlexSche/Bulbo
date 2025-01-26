@@ -18,10 +18,12 @@ public class Gun : MonoBehaviour
     {
         Transform chosenSpawnPoint = bulletSpawnPoint[alternatingNumber].transform;
         chosenSpawnPoint.LookAt(position);
+
         GameObject bullet = Instantiate(bulletPrefab, chosenSpawnPoint.position, chosenSpawnPoint.rotation);
         Bullet bulletScript = bullet.GetComponent<Bullet>();
         bulletScript.setDestinationPosition(position);
-        bullet.GetComponent<Rigidbody>().linearVelocity = player.transform.forward * playerAttributesSO.bulletSpeed;
+        Vector3 direction = position - chosenSpawnPoint.position;
+        bullet.GetComponent<Rigidbody>().linearVelocity = direction * playerAttributesSO.bulletSpeed;
         changeNumber();
     }
 

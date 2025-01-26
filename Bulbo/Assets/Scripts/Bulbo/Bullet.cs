@@ -1,23 +1,24 @@
+using System.Collections;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float aliveTimer = 10;
+    public PlayerAttributesSO playerAttributesSO;
     private new Rigidbody rigidbody;
     private Vector3 destinationPoint;
 
     void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
-        Destroy(gameObject, aliveTimer);
     }
     void Update()
     {
         if (destinationPoint != null)
         {
-            if (Vector3.Distance(transform.position, destinationPoint) < 1)
+            if (Vector3.Distance(transform.position, destinationPoint) < 0.4f)
             {
                 rigidbody.linearVelocity = Vector3.zero;
+                StartCoroutine(removeBullet());
             }
         }
     }
@@ -25,5 +26,11 @@ public class Bullet : MonoBehaviour
     public void setDestinationPosition(Vector3 position)
     {
         destinationPoint = position;
+        Debug.Log(destinationPoint);
+    }
+
+    IEnumerator removeBullet() {
+        yield return new WaitForSeconds(playerAttributesSO.bulletAliveTimer);
+        Destroy(gameObject);
     }
 }

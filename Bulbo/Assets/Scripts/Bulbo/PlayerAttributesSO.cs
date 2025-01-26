@@ -6,27 +6,32 @@ public class PlayerAttributesSO : ScriptableObject
     public int hitPoints;
     public float characterSpeed;
     public float bulletSpeed;
+    public float bulletAliveTimer;
     public float reloadSpeed;
     public float lightRaidus;
 
 
-    public void increaseHitpoints(int amount) {
+    public void changeHitpoints(int amount) {
         hitPoints += amount;
     }
 
-    public void increaseReloadSpeed(float amount) {
+    public void changeReloadSpeed(float amount) {
         reloadSpeed += amount;
     }
 
-    public void increaseLightRaidus(float amount) {
+    public void changeLightRaidus(float amount) {
         lightRaidus += amount;
     }
 
-    public void increaseCharacterSpeed(float amount) {
+    public void changeCharacterSpeed(float amount) {
         reloadSpeed += amount;
     }
 
-    public void increaseBulletSpeed(float amount) {
+    public void changeBulletSpeed(float amount) {
         bulletSpeed += amount;
+    }
+
+    public void changeBulletAliveTimer(float amount) {
+        bulletAliveTimer += amount;
     }
 }
