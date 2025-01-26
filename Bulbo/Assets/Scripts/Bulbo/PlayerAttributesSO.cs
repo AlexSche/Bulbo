@@ -4,6 +4,8 @@ using UnityEngine;
 public class PlayerAttributesSO : ScriptableObject
 {
     public int hitPoints;
+    public float damage;
+    public float tickSpeed;
     public float characterSpeed;
     public float bulletSpeed;
     public float bulletAliveTimer;
@@ -12,31 +14,47 @@ public class PlayerAttributesSO : ScriptableObject
     public float lightRaidus;
 
 
-    public void changeHitpoints(int amount) {
+    public void changeHitpoints(int amount)
+    {
         hitPoints += amount;
     }
 
-    public void changeReloadSpeed(float amount) {
+    public void changeReloadSpeed(float amount)
+    {
         reloadSpeed += amount;
     }
 
-    public void changeLightRaidus(float amount) {
+    public void changeLightRaidus(float amount)
+    {
         lightRaidus += amount;
     }
 
-    public void changeCharacterSpeed(float amount) {
+    public void changeCharacterSpeed(float amount)
+    {
         reloadSpeed += amount;
     }
 
-    public void changeBulletSpeed(float amount) {
+    public void changeBulletSpeed(float amount)
+    {
         bulletSpeed += amount;
     }
 
-    public void changeBulletAliveTimer(float amount) {
+    public void changeBulletAliveTimer(float amount)
+    {
         bulletAliveTimer += amount;
     }
 
-    public void changeBulletLightRadius(float amount) {
+    public void changeBulletLightRadius(float amount)
+    {
         bulletLightRadius += amount;
+    }
+
+    public void changeDamage(float amount)
+    {
+        damage += amount;
+    }
+
+    public void changeTickSpeed(float amount) {
+        tickSpeed += amount;
     }
 }

@@ -4,21 +4,27 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] private EnemyAttributeSO enemyAttributeSO;
+    [SerializeField] private PlayerAttributesSO playerAttributesSO;
     [SerializeField] private FloatingHealthbar floatingHealthbar;
     private float currentHealth;
     private float speed;
     private float attackDamage;
+    private Animator animator;
     private Vector3 targetPosition = Vector3.zero;
+    private Coroutine damageCoroutine = null;
     void Start()
     {
+        animator = GetComponent<Animator>();
         currentHealth = enemyAttributeSO.health;
         speed = enemyAttributeSO.speed;
         attackDamage = enemyAttributeSO.attackDamage;
         StartCoroutine(moveEnemy());
     }
 
-    void FixedUpdate() {
-        if (currentHealth <= 0) {
+    void FixedUpdate()
+    {
+        if (currentHealth <= 0)
+        {
             Destroy(gameObject);
         }
     }
@@ -29,28 +35,35 @@ public class EnemyController : MonoBehaviour
         {
             Vector2 moveDirection = targetPosition - transform.position;
             transform.LookAt(Vector3.zero);
-            transform.position = Vector3.Lerp(transform.position, targetPosition, 0.05f);
-            yield return new WaitForSeconds(1);
+            animator.SetBool("isMoving", true);
+            transform.position = Vector3.Lerp(transform.position, targetPosition, 0.025f);
+            yield return new WaitForSeconds(0.5f);
         }
     }
 
-    void OnTriggerEnter(Collider other) {
-        if (other.gameObject.tag == "Lightradius") {
-            StartCoroutine(damageOverTime(10, 1));
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Lightradius")
+        {
+            damageCoroutine = StartCoroutine(damageOverTime());
         }
     }
 
-    void OnTriggerExit(Collider other) {
-        if (other.gameObject.tag == "Lightradius") {
-            StopCoroutine(damageOverTime(10, 1));
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Lightradius")
+        {
+            StopCoroutine(damageCoroutine);
         }
     }
 
-    private IEnumerator damageOverTime(float damage, float tick) {
-        while (true) {
-            currentHealth -= damage;
+    private IEnumerator damageOverTime()
+    {
+        while (true)
+        {
+            currentHealth -= playerAttributesSO.damage;
             floatingHealthbar.updateHealthbar(currentHealth, enemyAttributeSO.health);
-            yield return new WaitForSeconds(tick);
+            yield return new WaitForSeconds(playerAttributesSO.tickSpeed);
         }
     }
 }

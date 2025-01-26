@@ -501,6 +501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAttributeSO: {fileID: 11400000, guid: f65886fb4669a5643b2a5b695c1536eb, type: 2}
+  playerAttributesSO: {fileID: 11400000, guid: f20b726637170c54b87d47cc5e7d3e31, type: 2}
   floatingHealthbar: {fileID: 1979037135702124296}
 --- !u!65 &8851525099931496146
 BoxCollider:
@@ -560,7 +561,7 @@ Animator:
   m_GameObject: {fileID: 3076384366925536863}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e2a59279551f4ad4f97bc88aa41cb728, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
