@@ -22,8 +22,6 @@ public class Gun : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, chosenSpawnPoint.position, chosenSpawnPoint.rotation);
         Bullet bulletScript = bullet.GetComponent<Bullet>();
         bulletScript.setDestinationPosition(position);
-        Vector3 direction = position - chosenSpawnPoint.position;
-        bullet.GetComponent<Rigidbody>().linearVelocity = direction * playerAttributesSO.bulletSpeed;
         changeNumber();
     }
 

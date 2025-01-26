@@ -3,6 +3,8 @@ using UnityEngine;
 public class LookAtCursor : MonoBehaviour
 {
     private new Camera camera;
+    [SerializeField]
+    private LayerMask layerMask;
     private Gun gun;
     Vector3 mousePos;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -16,7 +18,7 @@ public class LookAtCursor : MonoBehaviour
     void Update()
     {
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out RaycastHit raycastHit))
+        if (Physics.Raycast(ray, out RaycastHit raycastHit, float.MaxValue, layerMask))
         {
             if (raycastHit.collider.tag != "Player")
             {
