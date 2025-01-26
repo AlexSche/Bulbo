@@ -7,8 +7,8 @@ public class CharacterMovement : MonoBehaviour
     PlayerInput playerInput;
     InputAction moveAction;
     InputAction attackAction;
-    [SerializeField]
-    private float speed = 3;
+    private float speed;
+    public PlayerAttributesSO playerAttributesSO;
     private Gun gun;
 
     void Start()
@@ -30,6 +30,6 @@ public class CharacterMovement : MonoBehaviour
     void MovePlayer() 
     {
         Vector2 moveDirection = moveAction.ReadValue<Vector2>();
-        transform.position += new Vector3(moveDirection.x, 0 , moveDirection.y) * speed * Time.deltaTime;
+        transform.position += new Vector3(moveDirection.x, 0 , moveDirection.y) * playerAttributesSO.characterSpeed * Time.deltaTime;
     }
 }
