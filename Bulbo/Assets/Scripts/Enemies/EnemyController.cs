@@ -19,4 +19,16 @@ public class EnemyController : MonoBehaviour
             yield return new WaitForSeconds(1);
         }
     }
+
+    void OnTriggerEnter(Collider other) {
+        if (other.gameObject.tag == "Lightradius") {
+            Debug.Log("Enemy takes damage");
+        }
+    }
+
+    void OnTriggerExit(Collider other) {
+        if (other.gameObject.tag == "Lightradius") {
+            Debug.Log("Enemy no longer takes damage");
+        }
+    }
 }

@@ -48,6 +48,7 @@ public class Bullet : MonoBehaviour
         for (int i = 0; i <= playerAttributesSO.bulletAliveTimer; i++) {
             light.range -= light.range/20;
             light.intensity -= light.intensity/20;
+            capsuleCollider.radius -= capsuleCollider.radius/20;
             yield return new WaitForSeconds(0.5f);
         }
         yield return new WaitForSeconds(0.5f);
