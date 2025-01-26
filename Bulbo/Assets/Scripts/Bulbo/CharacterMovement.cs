@@ -9,17 +9,17 @@ public class CharacterMovement : MonoBehaviour
     InputAction attackAction;
     private float speed;
     public PlayerAttributesSO playerAttributesSO;
-    private Gun gun;
+    private LookAtCursor lookAtCursor;
 
     void Start()
     {
         playerInput = GetComponent<PlayerInput>();
-        gun = GetComponent<Gun>();
+        lookAtCursor = GetComponent<LookAtCursor>();
 
         moveAction = playerInput.actions.FindAction("Move");
         attackAction = playerInput.actions.FindAction("Attack");
 
-        attackAction.performed += _ => gun.Shoot();
+        attackAction.performed += _ => lookAtCursor.shootAtMouse();
     }
 
     void Update()

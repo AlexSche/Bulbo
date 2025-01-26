@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject enemyPrefab;
     void Start()
     {
         StartCoroutine(spawnEnemy(5, null));

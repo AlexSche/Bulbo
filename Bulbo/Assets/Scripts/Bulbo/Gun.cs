@@ -14,18 +14,25 @@ public class Gun : MonoBehaviour
         playerAttributesSO = player.GetComponent<CharacterMovement>().playerAttributesSO;
     }
 
-    public void Shoot()
+    public void shootAtPosition(Vector3 position)
     {
         Transform chosenSpawnPoint = bulletSpawnPoint[alternatingNumber].transform;
+        chosenSpawnPoint.LookAt(position);
         GameObject bullet = Instantiate(bulletPrefab, chosenSpawnPoint.position, chosenSpawnPoint.rotation);
+        Bullet bulletScript = bullet.GetComponent<Bullet>();
+        bulletScript.setDestinationPosition(position);
         bullet.GetComponent<Rigidbody>().linearVelocity = player.transform.forward * playerAttributesSO.bulletSpeed;
         changeNumber();
     }
 
-    private void changeNumber() {
-        if (alternatingNumber == 0) {
+    private void changeNumber()
+    {
+        if (alternatingNumber == 0)
+        {
             alternatingNumber++;
-        } else {
+        }
+        else
+        {
             alternatingNumber--;
         }
     }
