@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BulboAttributes
   m_EditorClassIdentifier: 
   hitPoints: 100
-  characterSpeed: 2.2
+  characterSpeed: 2
   bulletSpeed: 5
   bulletAliveTimer: 10
   bulletLightRadius: 2
