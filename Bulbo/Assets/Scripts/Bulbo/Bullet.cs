@@ -1,10 +1,22 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
     public PlayerAttributesSO playerAttributesSO;
+    private new Light light;
+    private SphereCollider capsuleCollider;
     private Vector3 destinationPoint;
+
+    void Start() {
+        light = GetComponent<Light>();
+        capsuleCollider = GetComponent<SphereCollider>();
+
+        light.range = playerAttributesSO.bulletLightRadius;
+        light.intensity = playerAttributesSO.bulletLightRadius;
+        capsuleCollider.radius = playerAttributesSO.bulletLightRadius * 4;
+    }
 
     void FixedUpdate()
     {
@@ -32,7 +44,13 @@ public class Bullet : MonoBehaviour
 
     IEnumerator removeBullet()
     {
-        yield return new WaitForSeconds(playerAttributesSO.bulletAliveTimer);
+        yield return new WaitForSeconds(playerAttributesSO.bulletAliveTimer / 2);
+        for (int i = 0; i <= playerAttributesSO.bulletAliveTimer; i++) {
+            light.range -= light.range/20;
+            light.intensity -= light.intensity/20;
+            yield return new WaitForSeconds(0.5f);
+        }
+        yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
     }
 }

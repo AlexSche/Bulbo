@@ -7,6 +7,7 @@ public class PlayerAttributesSO : ScriptableObject
     public float characterSpeed;
     public float bulletSpeed;
     public float bulletAliveTimer;
+    public float bulletLightRadius;
     public float reloadSpeed;
     public float lightRaidus;
 
@@ -33,5 +34,9 @@ public class PlayerAttributesSO : ScriptableObject
 
     public void changeBulletAliveTimer(float amount) {
         bulletAliveTimer += amount;
+    }
+
+    public void changeBulletLightRadius(float amount) {
+        bulletLightRadius += amount;
     }
 }

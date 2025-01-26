@@ -16,5 +16,6 @@ MonoBehaviour:
   characterSpeed: 2.2
   bulletSpeed: 5
   bulletAliveTimer: 10
+  bulletLightRadius: 2
   reloadSpeed: 2
   lightRaidus: 5
