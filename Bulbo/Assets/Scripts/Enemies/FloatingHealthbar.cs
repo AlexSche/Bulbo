@@ -16,7 +16,7 @@ public class FloatingHealthbar : MonoBehaviour
         transform.rotation = camera.transform.rotation;
     }
 
-    public void UpdateHealthbar(float currentValue, float maxValue) {
+    public void updateHealthbar(float currentValue, float maxValue) {
         slider.value = currentValue/maxValue;
     }
 }

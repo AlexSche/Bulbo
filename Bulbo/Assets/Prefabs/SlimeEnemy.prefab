@@ -497,6 +497,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac376aa7fdaaa164cb79ed556ffde228, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyAttributeSO: {fileID: 11400000, guid: f65886fb4669a5643b2a5b695c1536eb, type: 2}
+  floatingHealthbar: {fileID: 1979037135702124296}
 --- !u!65 &8851525099931496146
 BoxCollider:
   m_ObjectHideFlags: 0
