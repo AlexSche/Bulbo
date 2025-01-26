@@ -19,7 +19,8 @@ public class CharacterMovement : MonoBehaviour
         moveAction = playerInput.actions.FindAction("Move");
         attackAction = playerInput.actions.FindAction("Attack");
 
-        attackAction.performed += _ => lookAtCursor.shootAtMouse();
+        //attackAction.performed += _ => lookAtCursor.shootAtMouse();
+        StartCoroutine(lookAtCursor.automaticShooting(playerAttributesSO.reloadSpeed));
     }
 
     void Update()

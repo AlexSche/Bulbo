@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class LookAtCursor : MonoBehaviour
@@ -35,5 +36,12 @@ public class LookAtCursor : MonoBehaviour
         if (gun != null) {
             gun.shootAtPosition(mousePos);
         }
+    }
+
+    public IEnumerator automaticShooting(float duration) {
+        while (true) {
+            yield return new WaitForSeconds(duration);
+            shootAtMouse();
+        }  
     }
 }
