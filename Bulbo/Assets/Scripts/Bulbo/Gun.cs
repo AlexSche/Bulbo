@@ -6,7 +6,6 @@ public class Gun : MonoBehaviour
     private GameObject player;
     private PlayerAttributesSO playerAttributesSO;
     public GameObject bulletPrefab;
-    private float bulletSpeed = 10;
     private int alternatingNumber = 0;
 
     void Start()
