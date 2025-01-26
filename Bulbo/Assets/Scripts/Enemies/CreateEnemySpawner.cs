@@ -3,13 +3,13 @@ using UnityEngine;
 
 public class CreateEnemySpawner : MonoBehaviour
 {
+    [SerializeField] private GameObject enemyPrefab;
     public SpawnerAttributeSO spawnerAttributeSO;
-    public GameObject enemySpawnerPrefab;
     private Vector3 center = Vector3.zero;
 
     void Start()
     {
-        StartCoroutine(createNewSpawner());
+        StartCoroutine(spawnEnemy(enemyPrefab));
     }
 
     private Vector3 determineSpawnLocation()
@@ -27,12 +27,13 @@ public class CreateEnemySpawner : MonoBehaviour
         return direction;
     }
 
-    IEnumerator createNewSpawner()
+    IEnumerator spawnEnemy(GameObject enemy)
     {
-        for (int i = 0; i < spawnerAttributeSO.maxSpawner; i++)
+        while (true)
         {
-            GameObject enemySpawner = Instantiate(enemySpawnerPrefab, determineSpawnLocation(), Quaternion.identity);
             yield return new WaitForSeconds(spawnerAttributeSO.spawnTimer);
+            Vector3 spawnPosition = transform.position;
+            GameObject spawnedEnemy = Instantiate(enemy, determineSpawnLocation(), Quaternion.identity);
         }
     }
 }

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 983fd12f6b1d2a04fb35670d530971ea, type: 3}
   m_Name: SpawnerAttributeSO
   m_EditorClassIdentifier: 
-  radius: 15
-  spawnTimer: 10
+  radius: 12
+  spawnTimer: 2
   maxSpawner: 3
