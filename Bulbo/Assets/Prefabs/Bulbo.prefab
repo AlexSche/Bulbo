@@ -5544,11 +5544,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7625a5c3f7fc6a649b3dbcc85098e223, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyControllerChannel: {fileID: 11400000, guid: a1d2f6fa87cf6f94cba1266f37bcc330, type: 2}
   shootingBar: {fileID: 0}
   onHealthChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 979c13bb1f04cf24abb4bcb2b7aeac9e, type: 2}
+      - m_Target: {fileID: 11400000, guid: 2805be3dfb0839e4aaee41cc008e565e, type: 2}
         m_TargetAssemblyTypeName: PlayerUIChannel, Assembly-CSharp
         m_MethodName: changeHealth
         m_Mode: 0
@@ -5563,8 +5564,8 @@ MonoBehaviour:
   onXPChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 979c13bb1f04cf24abb4bcb2b7aeac9e, type: 2}
-        m_TargetAssemblyTypeName: PlayerUIChannel, Assembly-CSharp
+      - m_Target: {fileID: 11400000, guid: 2805be3dfb0839e4aaee41cc008e565e, type: 2}
+        m_TargetAssemblyTypeName: PlayerControllerChannel, Assembly-CSharp
         m_MethodName: changeXP
         m_Mode: 0
         m_Arguments:

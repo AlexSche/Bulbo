@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private EnemyAttributeSO enemyAttributeSO;
     [SerializeField] private PlayerAttributesSO playerAttributesSO;
     [SerializeField] private FloatingHealthbar floatingHealthbar;
-    [SerializeField] private UnityEvent died;
+    [SerializeField] private UnityEvent<float> died;
     [SerializeField] private UnityEvent<FloatingHealthbar, float, float> changedHealth;
     private GameObject player;
     private float currentHealth;
@@ -83,8 +83,7 @@ public class EnemyController : MonoBehaviour
     }
 
     private void dies() {
-        player.GetComponent<CharacterMovement>().getXP(5);
-        died?.Invoke();
+        died?.Invoke(enemyAttributeSO.xpWorth);
         Destroy(gameObject);
     }
 }

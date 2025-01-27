@@ -5,7 +5,8 @@ using UnityEngine.Events;
 
 public class CharacterMovement : MonoBehaviour
 {
-    [SerializeField] private ShootingBar shootingBar;
+    [SerializeField] private EnemyControllerChannel enemyControllerChannel;
+    //[SerializeField] private ShootingBar shootingBar;
     [SerializeField] private UnityEvent<float, float> onHealthChanged;
     [SerializeField] private UnityEvent<float, float> onXPChanged;
     [SerializeField] private UnityEvent onLevelChanged;
@@ -31,6 +32,8 @@ public class CharacterMovement : MonoBehaviour
 
         lightnova = GetComponent<Lightnova>();
 
+        enemyControllerChannel.died += getXP;
+
         moveAction = playerInput.actions.FindAction("Move");
 
         StartCoroutine(automaticShooting(playerAttributesSO.reloadSpeed));
@@ -41,7 +44,7 @@ public class CharacterMovement : MonoBehaviour
         if (shootTimer >= 0)
         {
             shootTimer -= Time.deltaTime;
-            shootingBar.changeBarStatus(completeShootAnimationSpeed, shootTimer);
+            //shootingBar.changeBarStatus(completeShootAnimationSpeed, shootTimer);
         }
     }
 
