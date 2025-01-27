@@ -19,9 +19,6 @@ public class CharacterMovement : MonoBehaviour
     private CharacterController characterController;
     private float completeShootAnimationSpeed = 0;
     private float shootTimer = 0;
-
-    private Lightnova lightnova;
-
     void Start()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -29,9 +26,6 @@ public class CharacterMovement : MonoBehaviour
         gun = GetComponent<Gun>();
         animator = GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
-
-        lightnova = GetComponent<Lightnova>();
-
         enemyControllerChannel.died += getXP;
 
         moveAction = playerInput.actions.FindAction("Move");

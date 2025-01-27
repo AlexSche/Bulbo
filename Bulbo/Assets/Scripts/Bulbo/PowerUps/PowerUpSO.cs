@@ -6,17 +6,26 @@ public class PowerUpSO : ScriptableObject
     public float cooldown = 10f;
     public float radius = 5f;
     public float damage = 20f;
-    
+    public int bounce = 1;
+
     [HideInInspector]
-    public void changeCooldown(float amount) {
+    public void changeCooldown(float amount)
+    {
         cooldown += amount;
     }
 
-    public void changeRadius(float amount) {
+    public void changeRadius(float amount)
+    {
         radius += amount;
     }
-    public void changeDamage(float amount) {
+    public void changeDamage(float amount)
+    {
         damage += amount;
     }
-    
+
+    public void increaseBounce()
+    {
+        bounce++;
+    }
+
 }
