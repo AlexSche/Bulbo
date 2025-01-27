@@ -1,8 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
-using UnityEngine.Rendering;
-using TMPro;
 using UnityEngine.Events;
 
 public class CharacterMovement : MonoBehaviour
@@ -20,6 +18,8 @@ public class CharacterMovement : MonoBehaviour
     private float completeShootAnimationSpeed = 0;
     private float shootTimer = 0;
 
+    private Lightnova lightnova;
+
     void Start()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -27,6 +27,8 @@ public class CharacterMovement : MonoBehaviour
         gun = GetComponent<Gun>();
         animator = GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
+
+        lightnova = GetComponent<Lightnova>();
 
         moveAction = playerInput.actions.FindAction("Move");
 

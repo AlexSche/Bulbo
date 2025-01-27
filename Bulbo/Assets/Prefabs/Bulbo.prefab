@@ -573,6 +573,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7625a5c3f7fc6a649b3dbcc85098e223, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootingBar: {fileID: 0}
+  onHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  onXPChanged:
+    m_PersistentCalls:
+      m_Calls: []
   playerAttributesSO: {fileID: 11400000, guid: f20b726637170c54b87d47cc5e7d3e31, type: 2}
 --- !u!114 &3150632123946079820
 MonoBehaviour:

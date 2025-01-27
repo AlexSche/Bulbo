@@ -9,18 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7eb892f0e43b79c459fd40cbbb4837e9, type: 3}
-  m_Name: BulboAttributes
+  m_Script: {fileID: 11500000, guid: e32f0887f469a7c48848acbcfc72a45f, type: 3}
+  m_Name: PowerUpSO
   m_EditorClassIdentifier: 
-  hitPoints: 100
-  level: 4
-  xp: 100
-  requiredXP: 140
+  cooldown: 10
+  radius: 5
   damage: 20
-  tickSpeed: 1
-  characterSpeed: 4
-  bulletSpeed: 5
-  bulletAliveTimer: 5
-  bulletLightRadius: 1.75
-  reloadSpeed: 0.5
-  lightRadius: 5

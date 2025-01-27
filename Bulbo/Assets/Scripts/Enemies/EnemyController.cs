@@ -50,6 +50,11 @@ public class EnemyController : MonoBehaviour
         {
             damageCoroutine = StartCoroutine(damageOverTime());
         }
+
+        if (other.gameObject.tag == "Lighthit") {
+            takeDamage(10);
+            floatingHealthbar.updateHealthbar(currentHealth, enemyAttributeSO.health);
+        }
     }
 
     void OnTriggerExit(Collider other)
@@ -68,6 +73,10 @@ public class EnemyController : MonoBehaviour
             floatingHealthbar.updateHealthbar(currentHealth, enemyAttributeSO.health);
             yield return new WaitForSeconds(playerAttributesSO.tickSpeed);
         }
+    }
+
+    private void takeDamage(float amount) {
+        currentHealth -= amount;
     }
 
     private void dies() {
