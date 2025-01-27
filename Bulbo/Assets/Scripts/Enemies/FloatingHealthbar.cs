@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class FloatingHealthbar : MonoBehaviour
 {
+    [SerializeField] EnemyControllerChannel enemyControllerChannel;
     private Slider slider;
     private new Camera camera;
 
@@ -10,13 +11,14 @@ public class FloatingHealthbar : MonoBehaviour
     void Start() {
         slider = GetComponent<Slider>();
         camera = Camera.main;
+        enemyControllerChannel.healthChanged += updateHealthbar;
     }
 
     void Update() {
         transform.rotation = camera.transform.rotation;
     }
 
-    public void updateHealthbar(float currentValue, float maxValue) {
-        slider.value = currentValue/maxValue;
+    public void updateHealthbar(FloatingHealthbar floatingHealthbar, float maxValue, float currentValue) {
+        floatingHealthbar.slider.value = currentValue/maxValue;
     }
 }

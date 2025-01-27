@@ -315,6 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4175f9d7e8ee9254d94e66802958a3f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyControllerChannel: {fileID: 11400000, guid: a1d2f6fa87cf6f94cba1266f37bcc330, type: 2}
 --- !u!1 &5332334614807904654
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,6 +504,36 @@ MonoBehaviour:
   enemyAttributeSO: {fileID: 11400000, guid: f65886fb4669a5643b2a5b695c1536eb, type: 2}
   playerAttributesSO: {fileID: 11400000, guid: f20b726637170c54b87d47cc5e7d3e31, type: 2}
   floatingHealthbar: {fileID: 1979037135702124296}
+  died:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: a1d2f6fa87cf6f94cba1266f37bcc330, type: 2}
+        m_TargetAssemblyTypeName: EnemyControllerChannel, Assembly-CSharp
+        m_MethodName: enemyDied
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  changedHealth:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: a1d2f6fa87cf6f94cba1266f37bcc330, type: 2}
+        m_TargetAssemblyTypeName: EnemyControllerChannel, Assembly-CSharp
+        m_MethodName: changeHealth
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!65 &8851525099931496146
 BoxCollider:
   m_ObjectHideFlags: 0

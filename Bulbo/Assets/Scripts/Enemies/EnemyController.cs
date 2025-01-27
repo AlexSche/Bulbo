@@ -1,11 +1,14 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] private EnemyAttributeSO enemyAttributeSO;
     [SerializeField] private PlayerAttributesSO playerAttributesSO;
     [SerializeField] private FloatingHealthbar floatingHealthbar;
+    [SerializeField] private UnityEvent died;
+    [SerializeField] private UnityEvent<FloatingHealthbar, float, float> changedHealth;
     private GameObject player;
     private float currentHealth;
     private float speed;
@@ -53,7 +56,6 @@ public class EnemyController : MonoBehaviour
 
         if (other.gameObject.tag == "Lighthit") {
             takeDamage(10);
-            floatingHealthbar.updateHealthbar(currentHealth, enemyAttributeSO.health);
         }
     }
 
@@ -70,17 +72,19 @@ public class EnemyController : MonoBehaviour
         while (true)
         {
             currentHealth -= playerAttributesSO.damage;
-            floatingHealthbar.updateHealthbar(currentHealth, enemyAttributeSO.health);
+            changedHealth?.Invoke(floatingHealthbar, enemyAttributeSO.health, currentHealth);
             yield return new WaitForSeconds(playerAttributesSO.tickSpeed);
         }
     }
 
     private void takeDamage(float amount) {
         currentHealth -= amount;
+        changedHealth?.Invoke(floatingHealthbar, enemyAttributeSO.health, currentHealth);
     }
 
     private void dies() {
         player.GetComponent<CharacterMovement>().getXP(5);
+        died?.Invoke();
         Destroy(gameObject);
     }
 }
