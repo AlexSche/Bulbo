@@ -1,22 +1,35 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
     private Vector3 destinationPoint;
+    private List<Vector3> destinationPositions = new List<Vector3>();
     void FixedUpdate()
     {
-        if (Vector3.Distance(transform.position, destinationPoint) >= 1.2f)
+        if (Vector3.Distance(transform.position, destinationPoint) >= 0.5f)
         {
             moveWithFixedY();
-        } else {
-            Destroy(gameObject);
+        }
+        else
+        {
+            if (destinationPositions.Count > 0)
+            {
+                destinationPoint = destinationPositions[0];
+                destinationPositions.RemoveAt(0);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
     public void moveWithFixedY()
     {
         Vector3 dir = (destinationPoint - transform.position);
-        transform.position = new Vector3(transform.position.x, 1, transform.position.z);
+        transform.position = new Vector3(transform.position.x, 0.25f, transform.position.z);
         dir.y = transform.position.y;
         transform.position += dir * 5 * Time.deltaTime;
     }
@@ -24,5 +37,10 @@ public class Laser : MonoBehaviour
     public void setDestinationPosition(Vector3 position)
     {
         destinationPoint = position;
+    }
+
+    public void setDestinationPositions(List<Vector3> positions)
+    {
+        destinationPositions = positions;
     }
 }
