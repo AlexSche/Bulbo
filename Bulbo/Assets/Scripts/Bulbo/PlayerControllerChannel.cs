@@ -12,6 +12,9 @@ public class PlayerControllerChannel : ScriptableObject
     public delegate void XPChangedCallback(float amountNeeded, float xpReceived);
     public XPChangedCallback xpChanged;
 
+    public delegate void AttackedByEnemyCallback(int damage);
+    public AttackedByEnemyCallback attackedByEnemy;
+
     public void changeHealth(float maxValue, float currenctValue)
     {
         healthChanged?.Invoke(maxValue, currenctValue);
@@ -25,5 +28,9 @@ public class PlayerControllerChannel : ScriptableObject
     public void changeLevel()
     {
         levelChanged?.Invoke();
+    }
+    
+    public void enemyAttacked(int damage) {
+        attackedByEnemy?.Invoke(damage);
     }
 }

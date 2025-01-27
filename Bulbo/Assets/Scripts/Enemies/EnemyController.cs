@@ -13,6 +13,8 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private UnityEvent<FloatingHealthbar, float, float> changedHealth;
     [SerializeField] private UnityEvent<GameObject> spawned;
     [SerializeField] private UnityEvent<ParticleSystem> tookDamage;
+
+    [SerializeField] private UnityEvent<int> attackedPlayer;
     private GameObject player;
     private float currentHealth;
     private float speed;
@@ -61,12 +63,17 @@ public class EnemyController : MonoBehaviour
         {
             damageCoroutine = StartCoroutine(damageOverTime());
         }
-
         if (other.gameObject.tag == "Lighthit") {
             takeDamage(LightnovaSO.damage);
         }
         if (other.gameObject.tag == "Laserhit") {
             takeDamage(laserEyesSO.damage);
+        }
+    }
+
+    void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.tag == "Player") {
+            attackedPlayer?.Invoke(enemyAttributeSO.attackDamage);
         }
     }
 

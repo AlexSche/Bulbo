@@ -5487,6 +5487,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  attackedPlayer:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 2805be3dfb0839e4aaee41cc008e565e, type: 2}
+        m_TargetAssemblyTypeName: PlayerControllerChannel, Assembly-CSharp
+        m_MethodName: enemyAttacked
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!65 &8851525099931496146
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5506,8 +5521,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.54, y: 1.2, z: 1.5}
-  m_Center: {x: 0, y: 0.57, z: 0}
+  m_Size: {x: 1.54, y: 2, z: 1.5}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!54 &1987046924139480983
 Rigidbody:
   m_ObjectHideFlags: 0

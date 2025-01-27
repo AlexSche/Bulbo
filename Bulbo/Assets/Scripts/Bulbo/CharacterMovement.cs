@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class CharacterMovement : MonoBehaviour
 {
     [SerializeField] private EnemyControllerChannel enemyControllerChannel;
+    [SerializeField] private PlayerControllerChannel playerControllerChannel;
     //[SerializeField] private ShootingBar shootingBar;
     [SerializeField] private UnityEvent<float, float> onHealthChanged;
     [SerializeField] private UnityEvent<float, float> onXPChanged;
@@ -19,15 +20,17 @@ public class CharacterMovement : MonoBehaviour
     private CharacterController characterController;
     private float completeShootAnimationSpeed = 0;
     private float shootTimer = 0;
+    private int currentHealth = 100;
     void Start()
     {
+        currentHealth = playerAttributesSO.hitPoints;
         playerInput = GetComponent<PlayerInput>();
         lookAtCursor = GetComponent<LookAtCursor>();
         gun = GetComponent<Gun>();
         animator = GetComponent<Animator>();
         characterController = GetComponent<CharacterController>();
         enemyControllerChannel.died += getXP;
-
+        playerControllerChannel.attackedByEnemy += takeDamage;
         moveAction = playerInput.actions.FindAction("Move");
 
         StartCoroutine(automaticShooting(playerAttributesSO.reloadSpeed));
@@ -44,6 +47,7 @@ public class CharacterMovement : MonoBehaviour
     void FixedUpdate()
     {
         MovePlayer();
+        transform.position = new Vector3(transform.position.x, 0, transform.position.z);
     }
 
     void MovePlayer()
@@ -66,7 +70,7 @@ public class CharacterMovement : MonoBehaviour
     {
         while (true)
         {
-            completeShootAnimationSpeed = duration + (animator.GetCurrentAnimatorStateInfo(0).length * 4/6);
+            completeShootAnimationSpeed = duration + (animator.GetCurrentAnimatorStateInfo(0).length * 4 / 6);
             shootTimer = completeShootAnimationSpeed;
             yield return new WaitForSeconds(duration);
             animator.SetBool("isShooting", true);
@@ -81,14 +85,17 @@ public class CharacterMovement : MonoBehaviour
         gun.shootAtPosition(lookAtCursor.mousePos);
     }
 
-    public void takeDamage(int damage) {
-        onHealthChanged?.Invoke(playerAttributesSO.hitPoints, playerAttributesSO.hitPoints-damage);
-        playerAttributesSO.changeHitpoints(-damage);
+    public void takeDamage(int damage)
+    {
+        currentHealth -= damage;
+        onHealthChanged?.Invoke(playerAttributesSO.hitPoints, currentHealth);
     }
 
-    public void getXP(GameObject enemy, float xp) {
+    public void getXP(GameObject enemy, float xp)
+    {
         playerAttributesSO.xp += xp;
-        if (playerAttributesSO.xp >= playerAttributesSO.requiredXP) {
+        if (playerAttributesSO.xp >= playerAttributesSO.requiredXP)
+        {
             playerAttributesSO.levelUp();
             onLevelChanged?.Invoke();
         }
