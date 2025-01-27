@@ -86,7 +86,7 @@ public class CharacterMovement : MonoBehaviour
         playerAttributesSO.changeHitpoints(-damage);
     }
 
-    public void getXP(float xp) {
+    public void getXP(GameObject enemy, float xp) {
         playerAttributesSO.xp += xp;
         if (playerAttributesSO.xp >= playerAttributesSO.requiredXP) {
             playerAttributesSO.levelUp();

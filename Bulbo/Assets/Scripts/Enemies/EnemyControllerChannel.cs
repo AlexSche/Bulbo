@@ -6,7 +6,10 @@ public class EnemyControllerChannel : ScriptableObject
     public delegate void HealthChangedCallback(FloatingHealthbar healthbar, float maxValue, float currentValue);
     public HealthChangedCallback healthChanged;
 
-    public delegate void DiedCallback(float xpWorth);
+    public delegate void EnemySpawnedCallback(GameObject enemy);
+    public EnemySpawnedCallback enemySpawned;
+
+    public delegate void DiedCallback(GameObject enemy, float xpWorth);
     public DiedCallback died;
 
 
@@ -15,8 +18,12 @@ public class EnemyControllerChannel : ScriptableObject
         healthChanged?.Invoke(healthbar, maxValue, currentValue);
     }
 
-    public void enemyDied(float xpWorth)
+    public void enemySpawner(GameObject enemy) {
+        enemySpawned?.Invoke(enemy);
+    }
+
+    public void enemyDied(GameObject enemy, float xpWorth)
     {
-        died?.Invoke(xpWorth);
+        died?.Invoke(enemy, xpWorth);
     }
 }

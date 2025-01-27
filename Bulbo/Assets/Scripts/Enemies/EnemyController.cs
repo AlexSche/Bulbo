@@ -7,8 +7,9 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private EnemyAttributeSO enemyAttributeSO;
     [SerializeField] private PlayerAttributesSO playerAttributesSO;
     [SerializeField] private FloatingHealthbar floatingHealthbar;
-    [SerializeField] private UnityEvent<float> died;
+    [SerializeField] private UnityEvent<GameObject, float> died;
     [SerializeField] private UnityEvent<FloatingHealthbar, float, float> changedHealth;
+    [SerializeField] private UnityEvent<GameObject> spawned;
     private GameObject player;
     private float currentHealth;
     private float speed;
@@ -16,6 +17,10 @@ public class EnemyController : MonoBehaviour
     private Animator animator;
     private Vector3 targetPosition = Vector3.zero;
     private Coroutine damageCoroutine = null;
+
+    void Awake() {
+        spawned?.Invoke(this.gameObject);
+    }
     void Start()
     {
         player = GameObject.FindWithTag("Player");
@@ -83,7 +88,7 @@ public class EnemyController : MonoBehaviour
     }
 
     private void dies() {
-        died?.Invoke(enemyAttributeSO.xpWorth);
+        died?.Invoke(gameObject, enemyAttributeSO.xpWorth);
         Destroy(gameObject);
     }
 }

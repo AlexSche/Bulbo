@@ -1,14 +1,18 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CreateEnemySpawner : MonoBehaviour
 {
+    public List<GameObject> enemies = new List<GameObject>();
     [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private EnemyControllerChannel enemyControllerChannel;
     public SpawnerAttributeSO spawnerAttributeSO;
     private Vector3 center = Vector3.zero;
 
     void Start()
     {
+        enemyControllerChannel.died += enemyRemoved;
         StartCoroutine(spawnEnemy(enemyPrefab));
     }
 
@@ -34,6 +38,12 @@ public class CreateEnemySpawner : MonoBehaviour
             yield return new WaitForSeconds(spawnerAttributeSO.spawnTimer);
             Vector3 spawnPosition = transform.position;
             GameObject spawnedEnemy = Instantiate(enemy, determineSpawnLocation(), Quaternion.identity);
+            enemies.Add(spawnedEnemy);
         }
+    }
+
+    private void enemyRemoved(GameObject enemy, float xpWorth)
+    {
+        enemies.Remove(enemy);
     }
 }

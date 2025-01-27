@@ -675,6 +675,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 416668374}
   m_CullTransparentMesh: 1
+--- !u!4 &609824801 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8724746392325864358, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
+  m_PrefabInstance: {fileID: 2282262038925929977}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &633752373
 GameObject:
   m_ObjectHideFlags: 0
@@ -1304,6 +1309,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1195283254}
   - component: {fileID: 1195283255}
+  - component: {fileID: 1195283256}
   m_Layer: 0
   m_Name: PowerUps
   m_TagString: Untagged
@@ -1340,11 +1346,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lightNovaPrefab: {fileID: 2379940737134905983, guid: e7159190c8544e648a9e28a099528eb2, type: 3}
   powerUpSO: {fileID: 11400000, guid: 2f3c28b28f4daa84aa0a0999d03c1a30, type: 2}
+--- !u!114 &1195283256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195283253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4621d435769f9c2468f5760eaedc89da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletSpawnPoint:
+  - {fileID: 1512906763}
+  - {fileID: 609824801}
+  LaserPrefab: {fileID: 6474574726147093763, guid: 41be360d8244f39478fbadb09777f7aa, type: 3}
+  powerUpSO: {fileID: 11400000, guid: 9d6bda008beb80848836e1de4fcf21d3, type: 2}
+  enemySpawner: {fileID: 1294308351}
 --- !u!4 &1269342520 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6882317542814827097, guid: 55928ff9aa7836843810f496ebf1147e, type: 3}
   m_PrefabInstance: {fileID: 8051886852157535013}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1294308351 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 965425107851600841, guid: 2ea71c777d1387648bf074c733074a62, type: 3}
+  m_PrefabInstance: {fileID: 6543476816966062323}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63d8d4b8e16b1ef4eabd7148d2baa28d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1359826325
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1406,6 +1441,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6882317542814827097, guid: 55928ff9aa7836843810f496ebf1147e, type: 3}
   m_PrefabInstance: {fileID: 1359826325}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1512906763 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4831406693953970220, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
+  m_PrefabInstance: {fileID: 2282262038925929977}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1739263435
 GameObject:
@@ -2140,6 +2180,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 965425107851600841, guid: 2ea71c777d1387648bf074c733074a62, type: 3}
+      propertyPath: enemyControllerChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: a1d2f6fa87cf6f94cba1266f37bcc330, type: 2}
     - target: {fileID: 2792538121042734437, guid: 2ea71c777d1387648bf074c733074a62, type: 3}
       propertyPath: m_Name
       value: EnemySpawnLocation
