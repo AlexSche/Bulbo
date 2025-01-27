@@ -44,7 +44,6 @@ public class CharacterMovement : MonoBehaviour
         if (shootTimer >= 0)
         {
             shootTimer -= Time.deltaTime;
-            //shootingBar.changeBarStatus(completeShootAnimationSpeed, shootTimer);
         }
     }
 
