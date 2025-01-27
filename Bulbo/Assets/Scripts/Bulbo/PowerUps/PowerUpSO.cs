@@ -6,7 +6,7 @@ public class PowerUpSO : ScriptableObject
     public float cooldown = 10f;
     public float radius = 5f;
     public float damage = 20f;
-    public int bounce = 1;
+    public int ricochets = 1;
 
     [HideInInspector]
     public void changeCooldown(float amount)
@@ -23,9 +23,9 @@ public class PowerUpSO : ScriptableObject
         damage += amount;
     }
 
-    public void increaseBounce()
+    public void increaseRicochets()
     {
-        bounce++;
+        ricochets++;
     }
 
 }

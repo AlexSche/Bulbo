@@ -15,4 +15,4 @@ MonoBehaviour:
   cooldown: 10
   radius: 5
   damage: 30
-  bounce: 1
+  ricochets: 3

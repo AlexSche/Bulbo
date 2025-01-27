@@ -32,6 +32,7 @@ public class Bullet : MonoBehaviour
     public void moveWithFixedY()
     {
         Vector3 dir = (destinationPoint - transform.position);
+        transform.LookAt(destinationPoint);
         transform.position = new Vector3(transform.position.x, 1, transform.position.z);
         dir.y = transform.position.y;
         transform.position += dir * playerAttributesSO.bulletSpeed * Time.deltaTime;
