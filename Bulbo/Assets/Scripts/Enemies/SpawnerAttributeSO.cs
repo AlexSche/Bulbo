@@ -3,19 +3,16 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SpawnerAttributeSO", menuName = "Scriptable Objects/SpawnerAttributeSO")]
 public class SpawnerAttributeSO : ScriptableObject
 {
-    public float radius = 15f;
-    public float spawnTimer = 10f;
-    public int maxSpawner = 3;
+    public int radius = 15;
+    public int spawnTimer = 5;
+    public int defaultEnemies = 4;
+    public int eliteEnemies = 0;
 
-    public void changeRadius(float amount) {
+    public void changeRadius(int amount) {
         radius += amount;
     }
 
-    public void changeSpawnTimer(float amount) {
+    public void changeSpawnTimer(int amount) {
         spawnTimer += amount;
-    }
-
-    public void increaseMaxSpawner() {
-        maxSpawner++;
     }
 }

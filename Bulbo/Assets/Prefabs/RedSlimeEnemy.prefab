@@ -5669,7 +5669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac376aa7fdaaa164cb79ed556ffde228, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyAttributeSO: {fileID: 11400000, guid: f65886fb4669a5643b2a5b695c1536eb, type: 2}
+  enemyAttributeSO: {fileID: 11400000, guid: e69158ce7db35c44680552fb22adfc44, type: 2}
   playerAttributesSO: {fileID: 11400000, guid: f20b726637170c54b87d47cc5e7d3e31, type: 2}
   laserEyesSO: {fileID: 11400000, guid: 9d6bda008beb80848836e1de4fcf21d3, type: 2}
   LightnovaSO: {fileID: 11400000, guid: 2f3c28b28f4daa84aa0a0999d03c1a30, type: 2}

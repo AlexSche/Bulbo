@@ -2080,6 +2080,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 965425107851600841, guid: 2ea71c777d1387648bf074c733074a62, type: 3}
+      propertyPath: slimeEnemy
+      value: 
+      objectReference: {fileID: 3076384366925536863, guid: e4d4078f4e585224c96dcfa5ae57edd7, type: 3}
+    - target: {fileID: 965425107851600841, guid: 2ea71c777d1387648bf074c733074a62, type: 3}
+      propertyPath: elitePrefab
+      value: 
+      objectReference: {fileID: 3076384366925536863, guid: 5935db30f2fe07045883becb1dc33b8c, type: 3}
+    - target: {fileID: 965425107851600841, guid: 2ea71c777d1387648bf074c733074a62, type: 3}
+      propertyPath: redSlimeEnemy
+      value: 
+      objectReference: {fileID: 3076384366925536863, guid: 5935db30f2fe07045883becb1dc33b8c, type: 3}
+    - target: {fileID: 965425107851600841, guid: 2ea71c777d1387648bf074c733074a62, type: 3}
       propertyPath: enemyControllerChannel
       value: 
       objectReference: {fileID: 11400000, guid: a1d2f6fa87cf6f94cba1266f37bcc330, type: 2}
