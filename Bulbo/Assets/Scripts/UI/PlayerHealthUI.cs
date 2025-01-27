@@ -3,13 +3,13 @@ using UnityEngine.UI;
 
 public class PlayerHealthUI : MonoBehaviour
 {
-    [SerializeField] private PlayerUIChannel playerUIChannel;
+    [SerializeField] private PlayerControllerChannel playerControllerChannel;
     private Slider slider;
 
     void Start()
     {
         slider = GetComponent<Slider>();
-        playerUIChannel.healthChanged += changeHealthbar;
+        playerControllerChannel.healthChanged += changeHealthbar;
     }
 
     public void changeHealthbar(float maxValue, float currentValue)
