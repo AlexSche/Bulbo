@@ -503,6 +503,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyAttributeSO: {fileID: 11400000, guid: f65886fb4669a5643b2a5b695c1536eb, type: 2}
   playerAttributesSO: {fileID: 11400000, guid: f20b726637170c54b87d47cc5e7d3e31, type: 2}
+  laserEyesSO: {fileID: 11400000, guid: 9d6bda008beb80848836e1de4fcf21d3, type: 2}
+  LightnovaSO: {fileID: 11400000, guid: 2f3c28b28f4daa84aa0a0999d03c1a30, type: 2}
   floatingHealthbar: {fileID: 1979037135702124296}
   died:
     m_PersistentCalls:

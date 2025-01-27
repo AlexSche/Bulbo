@@ -6,6 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField] private EnemyAttributeSO enemyAttributeSO;
     [SerializeField] private PlayerAttributesSO playerAttributesSO;
+    [SerializeField] private PowerUpSO laserEyesSO, LightnovaSO;
     [SerializeField] private FloatingHealthbar floatingHealthbar;
     [SerializeField] private UnityEvent<GameObject, float> died;
     [SerializeField] private UnityEvent<FloatingHealthbar, float, float> changedHealth;
@@ -60,7 +61,10 @@ public class EnemyController : MonoBehaviour
         }
 
         if (other.gameObject.tag == "Lighthit") {
-            takeDamage(10);
+            takeDamage(LightnovaSO.damage);
+        }
+        if (other.gameObject.tag == "Laserhit") {
+            takeDamage(laserEyesSO.damage);
         }
     }
 
