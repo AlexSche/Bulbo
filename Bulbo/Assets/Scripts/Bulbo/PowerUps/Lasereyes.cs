@@ -44,10 +44,10 @@ public class Lasereyes : MonoBehaviour
             {
                 Transform chosenSpawnPoint = laserSpawnPoint[0].transform;
                 chosenSpawnPoint.LookAt(closestEnemy.transform.position);
-                Debug.DrawLine(chosenSpawnPoint.position, closestEnemy.transform.position, Color.cyan, 10);
+                //Debug.DrawLine(chosenSpawnPoint.position, closestEnemy.transform.position, Color.cyan, 10);
                 GameObject laser = Instantiate(LaserPrefab, chosenSpawnPoint.position, chosenSpawnPoint.rotation);
-                Bullet bulletScript = laser.GetComponent<Bullet>();
-                bulletScript.setDestinationPosition(closestEnemy.transform.position);
+                Laser laserScript = laser.GetComponent<Laser>();
+                laserScript.setDestinationPosition(closestEnemy.transform.position);
             }
             yield return new WaitForSeconds(5f);
         }
