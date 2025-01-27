@@ -8,9 +8,11 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private PlayerAttributesSO playerAttributesSO;
     [SerializeField] private PowerUpSO laserEyesSO, LightnovaSO;
     [SerializeField] private FloatingHealthbar floatingHealthbar;
+    [SerializeField] private new ParticleSystem particleSystem;
     [SerializeField] private UnityEvent<GameObject, float> died;
     [SerializeField] private UnityEvent<FloatingHealthbar, float, float> changedHealth;
     [SerializeField] private UnityEvent<GameObject> spawned;
+    [SerializeField] private UnityEvent<ParticleSystem> tookDamage;
     private GameObject player;
     private float currentHealth;
     private float speed;
@@ -80,8 +82,7 @@ public class EnemyController : MonoBehaviour
     {
         while (true)
         {
-            currentHealth -= playerAttributesSO.damage;
-            changedHealth?.Invoke(floatingHealthbar, enemyAttributeSO.health, currentHealth);
+            takeDamage(playerAttributesSO.damage);
             yield return new WaitForSeconds(playerAttributesSO.tickSpeed);
         }
     }
@@ -89,6 +90,7 @@ public class EnemyController : MonoBehaviour
     private void takeDamage(float amount) {
         currentHealth -= amount;
         changedHealth?.Invoke(floatingHealthbar, enemyAttributeSO.health, currentHealth);
+        tookDamage?.Invoke(particleSystem);
     }
 
     private void dies() {
