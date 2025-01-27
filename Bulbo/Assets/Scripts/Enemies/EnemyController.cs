@@ -28,7 +28,7 @@ public class EnemyController : MonoBehaviour
         targetPosition = player.transform.position;
         if (currentHealth <= 0)
         {
-            Destroy(gameObject);
+            dies();
         }
     }
 
@@ -68,5 +68,10 @@ public class EnemyController : MonoBehaviour
             floatingHealthbar.updateHealthbar(currentHealth, enemyAttributeSO.health);
             yield return new WaitForSeconds(playerAttributesSO.tickSpeed);
         }
+    }
+
+    private void dies() {
+        player.GetComponent<CharacterMovement>().getXP(5);
+        Destroy(gameObject);
     }
 }

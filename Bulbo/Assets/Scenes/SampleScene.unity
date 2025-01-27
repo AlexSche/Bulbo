@@ -1049,6 +1049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88ae954b83157a64bbaa0ae3f1e578a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerUIChannel: {fileID: 11400000, guid: 979c13bb1f04cf24abb4bcb2b7aeac9e, type: 2}
 --- !u!1 &704344451
 GameObject:
   m_ObjectHideFlags: 0
@@ -2135,17 +2136,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 135923479}
     - target: {fileID: 1773598672687928008, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
+      propertyPath: onXPChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1773598672687928008, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
       propertyPath: onHealthChanged.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1773598672687928008, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
+      propertyPath: onXPChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 979c13bb1f04cf24abb4bcb2b7aeac9e, type: 2}
     - target: {fileID: 1773598672687928008, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
       propertyPath: onHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1773598672687928008, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
+      propertyPath: onXPChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1773598672687928008, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
       propertyPath: onHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 11400000, guid: 979c13bb1f04cf24abb4bcb2b7aeac9e, type: 2}
+    - target: {fileID: 1773598672687928008, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
+      propertyPath: onXPChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: changeXP
+      objectReference: {fileID: 0}
     - target: {fileID: 1773598672687928008, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
       propertyPath: onHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -2155,8 +2172,16 @@ PrefabInstance:
       value: changeHealth
       objectReference: {fileID: 0}
     - target: {fileID: 1773598672687928008, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
+      propertyPath: onXPChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerUIChannel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1773598672687928008, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
       propertyPath: onHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PlayerUIChannel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1773598672687928008, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
+      propertyPath: onXPChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1773598672687928008, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
       propertyPath: onHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName

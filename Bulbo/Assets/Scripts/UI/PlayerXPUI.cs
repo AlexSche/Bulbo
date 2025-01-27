@@ -3,15 +3,17 @@ using UnityEngine.UI;
 
 public class PlayerXPUI : MonoBehaviour
 {
+    [SerializeField] private PlayerUIChannel playerUIChannel;
     private Slider slider;
 
     void Start()
     {
         slider = GetComponent<Slider>();
+        playerUIChannel.xpChanged += changeXPbar;
     }
 
-    public void changeXPbar(float maxValue, float currentValue)
+    public void changeXPbar(float amountNeeded, float xpReceived)
     {
-        slider.value = currentValue / maxValue;
+        slider.value = xpReceived / amountNeeded;
     }
 }

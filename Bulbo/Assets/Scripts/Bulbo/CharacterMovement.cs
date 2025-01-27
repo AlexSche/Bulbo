@@ -8,7 +8,8 @@ using UnityEngine.Events;
 public class CharacterMovement : MonoBehaviour
 {
     [SerializeField] private ShootingBar shootingBar;
-    [SerializeField] private UnityEvent<float , float> onHealthChanged;
+    [SerializeField] private UnityEvent<float, float> onHealthChanged;
+    [SerializeField] private UnityEvent<float, float> onXPChanged;
     PlayerInput playerInput;
     InputAction moveAction;
     public PlayerAttributesSO playerAttributesSO;
@@ -84,5 +85,13 @@ public class CharacterMovement : MonoBehaviour
     public void takeDamage(int damage) {
         onHealthChanged?.Invoke(playerAttributesSO.hitPoints, playerAttributesSO.hitPoints-damage);
         playerAttributesSO.changeHitpoints(-damage);
+    }
+
+    public void getXP(float xp) {
+        playerAttributesSO.xp += xp;
+        if (playerAttributesSO.xp >= playerAttributesSO.requiredXP) {
+            playerAttributesSO.levelUp();
+        }
+        onXPChanged?.Invoke(playerAttributesSO.requiredXP, playerAttributesSO.xp);
     }
 }
