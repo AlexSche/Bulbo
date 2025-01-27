@@ -6,6 +6,7 @@ using TMPro;
 
 public class CharacterMovement : MonoBehaviour
 {
+    [SerializeField] private ShootingBar shootingBar;
     PlayerInput playerInput;
     InputAction moveAction;
     InputAction attackAction;
@@ -15,6 +16,8 @@ public class CharacterMovement : MonoBehaviour
     private Gun gun;
     private Animator animator;
     private CharacterController characterController;
+    public float completeShootAnimationSpeed = 0;
+    public float shootTimer = 0;
 
     void Start()
     {
@@ -28,6 +31,15 @@ public class CharacterMovement : MonoBehaviour
         attackAction = playerInput.actions.FindAction("Attack");
 
         StartCoroutine(automaticShooting(playerAttributesSO.reloadSpeed));
+    }
+
+    void Update()
+    {
+        if (shootTimer >= 0)
+        {
+            shootTimer -= Time.deltaTime;
+            shootingBar.changeBarStatus(completeShootAnimationSpeed, shootTimer);
+        }
     }
 
     void FixedUpdate()
@@ -55,6 +67,8 @@ public class CharacterMovement : MonoBehaviour
     {
         while (true)
         {
+            completeShootAnimationSpeed = duration + (animator.GetCurrentAnimatorStateInfo(0).length * 4/6);
+            shootTimer = completeShootAnimationSpeed;
             yield return new WaitForSeconds(duration);
             animator.SetBool("isShooting", true);
             //gun.shootAtPosition(lookAtCursor.mousePos); added Event in animation
@@ -63,7 +77,8 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
-    public void shooting() {
+    public void shooting()
+    {
         gun.shootAtPosition(lookAtCursor.mousePos);
     }
 }

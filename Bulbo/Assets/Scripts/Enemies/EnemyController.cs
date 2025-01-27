@@ -6,6 +6,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private EnemyAttributeSO enemyAttributeSO;
     [SerializeField] private PlayerAttributesSO playerAttributesSO;
     [SerializeField] private FloatingHealthbar floatingHealthbar;
+    private GameObject player;
     private float currentHealth;
     private float speed;
     private float attackDamage;
@@ -14,6 +15,7 @@ public class EnemyController : MonoBehaviour
     private Coroutine damageCoroutine = null;
     void Start()
     {
+        player = GameObject.FindWithTag("Player");
         animator = GetComponent<Animator>();
         currentHealth = enemyAttributeSO.health;
         speed = enemyAttributeSO.speed;
@@ -23,6 +25,7 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
+        targetPosition = player.transform.position;
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
@@ -34,7 +37,7 @@ public class EnemyController : MonoBehaviour
         while (Vector3.Distance(transform.position, targetPosition) > 1f)
         {
             Vector2 moveDirection = targetPosition - transform.position;
-            transform.LookAt(Vector3.zero);
+            transform.LookAt(targetPosition);
             animator.SetBool("isMoving", true);
             transform.position = Vector3.Lerp(transform.position, targetPosition, 0.025f);
             yield return new WaitForSeconds(0.5f);

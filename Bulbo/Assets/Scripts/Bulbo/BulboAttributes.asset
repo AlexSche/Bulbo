@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: BulboAttributes
   m_EditorClassIdentifier: 
   hitPoints: 100
-  damage: 10
+  damage: 20
   tickSpeed: 1
   characterSpeed: 2
   bulletSpeed: 5
   bulletAliveTimer: 10
   bulletLightRadius: 2
-  reloadSpeed: 3
+  reloadSpeed: 1
   lightRaidus: 5
