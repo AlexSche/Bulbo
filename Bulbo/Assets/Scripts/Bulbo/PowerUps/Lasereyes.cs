@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Lasereyes : MonoBehaviour
 {
-    public Transform[] bulletSpawnPoint;
+    public Transform[] laserSpawnPoint;
     public GameObject LaserPrefab;
     [SerializeField] private PowerUpSO powerUpSO;
     [SerializeField] private CreateEnemySpawner enemySpawner;
@@ -14,17 +14,6 @@ public class Lasereyes : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         StartCoroutine(shootLasersAtClosestEnemy());
-    }
-
-    public void shootAtClosestEnemy()
-    {
-        GameObject closestEnemy = findClosestEnemy();
-        Transform chosenSpawnPoint = bulletSpawnPoint[0].transform;
-        chosenSpawnPoint.LookAt(closestEnemy.transform.position);
-        Debug.DrawLine(chosenSpawnPoint.position, closestEnemy.transform.position, Color.cyan, 10);
-        /*
-        GameObject bullet = Instantiate(LaserPrefab, chosenSpawnPoint.position, chosenSpawnPoint.rotation);
-        */
     }
 
     public GameObject findClosestEnemy()
@@ -53,9 +42,12 @@ public class Lasereyes : MonoBehaviour
             GameObject closestEnemy = findClosestEnemy();
             if (closestEnemy != null)
             {
-                Transform chosenSpawnPoint = bulletSpawnPoint[0].transform;
+                Transform chosenSpawnPoint = laserSpawnPoint[0].transform;
                 chosenSpawnPoint.LookAt(closestEnemy.transform.position);
                 Debug.DrawLine(chosenSpawnPoint.position, closestEnemy.transform.position, Color.cyan, 10);
+                GameObject laser = Instantiate(LaserPrefab, chosenSpawnPoint.position, chosenSpawnPoint.rotation);
+                Bullet bulletScript = laser.GetComponent<Bullet>();
+                bulletScript.setDestinationPosition(closestEnemy.transform.position);
             }
             yield return new WaitForSeconds(5f);
         }

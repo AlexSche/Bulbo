@@ -1358,10 +1358,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4621d435769f9c2468f5760eaedc89da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpawnPoint:
+  laserSpawnPoint:
   - {fileID: 1512906763}
   - {fileID: 609824801}
-  LaserPrefab: {fileID: 6474574726147093763, guid: 41be360d8244f39478fbadb09777f7aa, type: 3}
+  LaserPrefab: {fileID: 7005326552112720979, guid: 4fedaa765ff74034da358084e83d71c9, type: 3}
   powerUpSO: {fileID: 11400000, guid: 9d6bda008beb80848836e1de4fcf21d3, type: 2}
   enemySpawner: {fileID: 1294308351}
 --- !u!4 &1269342520 stripped
