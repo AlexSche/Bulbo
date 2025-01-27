@@ -3,21 +3,21 @@ using UnityEngine.InputSystem;
 using System.Collections;
 using UnityEngine.Rendering;
 using TMPro;
+using UnityEngine.Events;
 
 public class CharacterMovement : MonoBehaviour
 {
     [SerializeField] private ShootingBar shootingBar;
+    [SerializeField] private UnityEvent<float , float> onHealthChanged;
     PlayerInput playerInput;
     InputAction moveAction;
-    InputAction attackAction;
-    private float speed;
     public PlayerAttributesSO playerAttributesSO;
     private LookAtCursor lookAtCursor;
     private Gun gun;
     private Animator animator;
     private CharacterController characterController;
-    public float completeShootAnimationSpeed = 0;
-    public float shootTimer = 0;
+    private float completeShootAnimationSpeed = 0;
+    private float shootTimer = 0;
 
     void Start()
     {
@@ -28,7 +28,6 @@ public class CharacterMovement : MonoBehaviour
         characterController = GetComponent<CharacterController>();
 
         moveAction = playerInput.actions.FindAction("Move");
-        attackAction = playerInput.actions.FindAction("Attack");
 
         StartCoroutine(automaticShooting(playerAttributesSO.reloadSpeed));
     }
@@ -80,5 +79,10 @@ public class CharacterMovement : MonoBehaviour
     public void shooting()
     {
         gun.shootAtPosition(lookAtCursor.mousePos);
+    }
+
+    public void takeDamage(int damage) {
+        onHealthChanged?.Invoke(playerAttributesSO.hitPoints, playerAttributesSO.hitPoints-damage);
+        playerAttributesSO.changeHitpoints(-damage);
     }
 }

@@ -536,6 +536,7 @@ GameObject:
   m_Component:
   - component: {fileID: 238487315}
   - component: {fileID: 238487316}
+  - component: {fileID: 238487317}
   m_Layer: 5
   m_Name: PlayerHpBar
   m_TagString: Untagged
@@ -615,6 +616,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &238487317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238487314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8d8375946503bc43b1efdd3b0a8298f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerUIChannel: {fileID: 11400000, guid: 979c13bb1f04cf24abb4bcb2b7aeac9e, type: 2}
 --- !u!1 &263839496
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,6 +957,7 @@ GameObject:
   m_Component:
   - component: {fileID: 633752374}
   - component: {fileID: 633752375}
+  - component: {fileID: 633752376}
   m_Layer: 5
   m_Name: PlayerXPBar
   m_TagString: Untagged
@@ -1022,6 +1037,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &633752376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633752373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88ae954b83157a64bbaa0ae3f1e578a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &704344451
 GameObject:
   m_ObjectHideFlags: 0
@@ -1144,7 +1171,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 5.6686707, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2096,9 +2123,45 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1773598672687928008, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
+      propertyPath: hpBar
+      value: 
+      objectReference: {fileID: 238487317}
+    - target: {fileID: 1773598672687928008, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
+      propertyPath: xpBar
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1773598672687928008, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
       propertyPath: shootingBar
       value: 
       objectReference: {fileID: 135923479}
+    - target: {fileID: 1773598672687928008, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
+      propertyPath: onHealthChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1773598672687928008, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
+      propertyPath: onHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1773598672687928008, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
+      propertyPath: onHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 979c13bb1f04cf24abb4bcb2b7aeac9e, type: 2}
+    - target: {fileID: 1773598672687928008, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
+      propertyPath: onHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1773598672687928008, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
+      propertyPath: onHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: changeHealth
+      objectReference: {fileID: 0}
+    - target: {fileID: 1773598672687928008, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
+      propertyPath: onHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerUIChannel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1773598672687928008, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
+      propertyPath: onHealthChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2153592842020557526, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
       propertyPath: m_Name
       value: Bulbo
