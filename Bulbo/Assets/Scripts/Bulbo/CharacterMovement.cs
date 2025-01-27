@@ -8,6 +8,7 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private ShootingBar shootingBar;
     [SerializeField] private UnityEvent<float, float> onHealthChanged;
     [SerializeField] private UnityEvent<float, float> onXPChanged;
+    [SerializeField] private UnityEvent onLevelChanged;
     PlayerInput playerInput;
     InputAction moveAction;
     public PlayerAttributesSO playerAttributesSO;
@@ -93,6 +94,7 @@ public class CharacterMovement : MonoBehaviour
         playerAttributesSO.xp += xp;
         if (playerAttributesSO.xp >= playerAttributesSO.requiredXP) {
             playerAttributesSO.levelUp();
+            onLevelChanged?.Invoke();
         }
         onXPChanged?.Invoke(playerAttributesSO.requiredXP, playerAttributesSO.xp);
     }

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: BulboAttributes
   m_EditorClassIdentifier: 
   hitPoints: 100
-  level: 4
-  xp: 100
-  requiredXP: 140
+  level: 1
+  xp: 0
+  requiredXP: 20
   damage: 20
   tickSpeed: 1
   characterSpeed: 4
