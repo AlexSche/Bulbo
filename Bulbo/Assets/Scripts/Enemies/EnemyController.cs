@@ -52,8 +52,8 @@ public class EnemyController : MonoBehaviour
             Vector2 moveDirection = targetPosition - transform.position;
             transform.LookAt(targetPosition);
             animator.SetBool("isMoving", true);
-            transform.position = Vector3.Lerp(transform.position, targetPosition, 0.025f);
-            yield return new WaitForSeconds(0.5f);
+            transform.position = Vector3.Lerp(transform.position, targetPosition, 0.1f * (1-(enemyAttributeSO.speed/100)));
+            yield return new WaitForSeconds(0.4f);
         }
     }
 

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eb892f0e43b79c459fd40cbbb4837e9, type: 3}
   m_Name: BulboAttributes
   m_EditorClassIdentifier: 
-  hitPoints: 100
+  hitPoints: 50
   level: 10
-  xp: 65
+  xp: 205
   requiredXP: 350
   damage: 20
   tickSpeed: 1
