@@ -4,7 +4,7 @@ using UnityEngine;
 public class SpawnerAttributeSO : ScriptableObject
 {
     public int radius = 15;
-    public int spawnTimer = 5;
+    public float spawnTimer = 5;
     public int defaultEnemies = 4;
     public int eliteEnemies = 0;
 
@@ -12,7 +12,7 @@ public class SpawnerAttributeSO : ScriptableObject
         radius += amount;
     }
 
-    public void changeSpawnTimer(int amount) {
+    public void changeSpawnTimer(float amount) {
         spawnTimer += amount;
     }
 }

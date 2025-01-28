@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7eb892f0e43b79c459fd40cbbb4837e9, type: 3}
-  m_Name: BulboAttributes
+  m_Name: DefaultAttributes
   m_EditorClassIdentifier: 
   hitPoints: 50
   level: 1
