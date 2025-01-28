@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: BulboAttributes
   m_EditorClassIdentifier: 
   hitPoints: 50
-  level: 10
-  xp: 205
-  requiredXP: 350
-  damage: 20
+  level: 1
+  xp: 0
+  requiredXP: 40
+  damage: 15
   tickSpeed: 1
   characterSpeed: 4
   bulletSpeed: 5
   bulletAliveTimer: 5
-  bulletLightRadius: 1.75
-  reloadSpeed: 0.5
+  bulletLightRadius: 1.5
+  reloadSpeed: 1
   lightRadius: 5
