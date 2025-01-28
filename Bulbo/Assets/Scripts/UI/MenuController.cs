@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class MenuController : MonoBehaviour
 {
     [SerializeField] PlayerInput playerInput;
-    [SerializeField] MainMenu mainMenu;
+    private MainMenu mainMenu;
     private InputAction escPressed;
     private UnityEvent resume;
     void Start()
