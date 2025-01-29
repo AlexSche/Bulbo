@@ -22,9 +22,9 @@ public class PlayerAttributesSO : ScriptableObject
         hitPoints += amount;
     }
 
-    public void changeReloadSpeed(float amount)
+    public void reduceReloadSpeed(float amount)
     {
-        reloadSpeed += amount;
+        reloadSpeed -= amount;
     }
 
     public void changeLightRaidus(float amount)

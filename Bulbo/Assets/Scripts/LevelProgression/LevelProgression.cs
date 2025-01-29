@@ -23,7 +23,7 @@ public class LevelProgression : MonoBehaviour
         playerAttributesSO.changeBulletAliveTimer(1);
         playerAttributesSO.changeDamage(1);
         playerAttributesSO.changeCharacterSpeed(1);
-        playerAttributesSO.changeReloadSpeed(-0.05f);
+        playerAttributesSO.reduceReloadSpeed(0.1f);
         playerAttributesSO.changeBulletLightRadius(1);
     }
 

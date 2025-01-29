@@ -1,16 +1,13 @@
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class MenuController : MonoBehaviour
 {
     [SerializeField] PlayerInput playerInput;
-    private MainMenu mainMenu;
+    [SerializeField] MainMenu mainMenu;
     private InputAction escPressed;
-    private UnityEvent resume;
     void Start()
     {
-        mainMenu = FindFirstObjectByType<MainMenu>();
         gameObject.SetActive(false);
         escPressed = playerInput.actions.FindAction("OpenMenu");
         escPressed.performed += _ => freezeGame();
@@ -29,7 +26,6 @@ public class MenuController : MonoBehaviour
     }
 
     public void returnToMainMenu() {
-        gameObject.SetActive(false);
         mainMenu.openMainMenu();
     }
 }

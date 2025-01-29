@@ -3047,6 +3047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerInput: {fileID: 1971644603}
+  mainMenu: {fileID: 844607835}
 --- !u!4 &1269342520 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6882317542814827097, guid: 55928ff9aa7836843810f496ebf1147e, type: 3}

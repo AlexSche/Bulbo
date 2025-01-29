@@ -19,13 +19,14 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private UnityEvent<ParticleSystem> tookDamage;
     [SerializeField] private UnityEvent<int> attackedPlayer;
     private GameObject player;
-    private float currentHealth;
+    public float currentHealth;
     private float speed;
     private float attackDamage;
     private Animator animator;
     private Vector3 targetPosition = Vector3.zero;
     private Coroutine damageCoroutine = null;
-    private bool isDead = false;
+    public bool isDead = false;
+    public bool isDissolving = false;
 
     void Awake()
     {
@@ -41,16 +42,20 @@ public class EnemyController : MonoBehaviour
         StartCoroutine(moveEnemy());
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        targetPosition = player.transform.position;
         if (currentHealth <= 0)
         {
-            if (!isDead)
+            if (isDead && !isDissolving)
             {
                 StartCoroutine(dissolve());
             }
         }
+    }
+
+    void FixedUpdate()
+    {
+        targetPosition = player.transform.position;
     }
 
     IEnumerator moveEnemy()
@@ -108,17 +113,27 @@ public class EnemyController : MonoBehaviour
 
     private void takeDamage(float amount)
     {
+        currentHealth -= amount;
         if (currentHealth > 0)
         {
-            currentHealth -= amount;
             changedHealth?.Invoke(floatingHealthbar, enemyAttributeSO.health, currentHealth);
             tookDamage?.Invoke(particleSystem);
         }
+        else
+        {
+            changedHealth?.Invoke(floatingHealthbar, enemyAttributeSO.health, 0);
+            die();
+        }
+    }
+
+    private void die()
+    {
+        isDead = true;
     }
 
     IEnumerator dissolve()
     {
-        isDead = true;
+        isDissolving = true;
         died?.Invoke(gameObject, enemyAttributeSO.xpWorth);
         Material[] mats = gameObject.GetComponentInChildren<Renderer>().materials.ToArray();
         float elapsedTime = 0f;

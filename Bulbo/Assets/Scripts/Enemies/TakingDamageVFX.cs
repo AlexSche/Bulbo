@@ -22,6 +22,5 @@ public class TakingDamageVFX : MonoBehaviour
     void stopPlayingVFX(GameObject enemy, float xpWorth)
     {
         isDead = true;
-        //Destroy(enemy);
     }
 }
