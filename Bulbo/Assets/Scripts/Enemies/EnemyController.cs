@@ -102,6 +102,6 @@ public class EnemyController : MonoBehaviour
 
     private void dies() {
         died?.Invoke(gameObject, enemyAttributeSO.xpWorth);
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }
