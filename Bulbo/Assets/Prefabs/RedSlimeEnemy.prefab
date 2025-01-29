@@ -5675,6 +5675,7 @@ MonoBehaviour:
   LightnovaSO: {fileID: 11400000, guid: 2f3c28b28f4daa84aa0a0999d03c1a30, type: 2}
   floatingHealthbar: {fileID: 1979037135702124296}
   particleSystem: {fileID: 3839346534149326577}
+  dissolveShader: {fileID: -6465566751694194690, guid: 9273b7d3f84a4174a80f4f390e1c998e, type: 3}
   died:
     m_PersistentCalls:
       m_Calls:
@@ -5685,18 +5686,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: a1d2f6fa87cf6f94cba1266f37bcc330, type: 2}
-        m_TargetAssemblyTypeName: EnemyControllerChannel, Assembly-CSharp
-        m_MethodName: enemyTookDamage
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 3839346534149326577}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5762,6 +5751,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  currentHealth: 0
+  isDead: 0
+  isDissolving: 0
 --- !u!65 &8851525099931496146
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -10,7 +10,6 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private PowerUpSO laserEyesSO, LightnovaSO;
     [SerializeField] private FloatingHealthbar floatingHealthbar;
     [SerializeField] private new ParticleSystem particleSystem;
-    [SerializeField] private Material dissolveMaterial;
     [SerializeField] private Shader dissolveShader;
     private int dissolveAmount = Shader.PropertyToID("_DissolveAmount");
     [SerializeField] private UnityEvent<GameObject, float> died;
@@ -19,14 +18,14 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private UnityEvent<ParticleSystem> tookDamage;
     [SerializeField] private UnityEvent<int> attackedPlayer;
     private GameObject player;
-    public float currentHealth;
+    private float currentHealth;
     private float speed;
     private float attackDamage;
     private Animator animator;
     private Vector3 targetPosition = Vector3.zero;
     private Coroutine damageCoroutine = null;
-    public bool isDead = false;
-    public bool isDissolving = false;
+    private bool isDead = false;
+    private bool isDissolving = false;
 
     void Awake()
     {
