@@ -76,4 +76,19 @@ public class PlayerAttributesSO : ScriptableObject
             requiredXP = level * 35;
         }
     }
+
+    public void resetAllStats() {
+    hitPoints = 100;
+    level = 1;
+    xp = 0;
+    requiredXP = 120;
+    damage = 20;
+    tickSpeed = 1;
+    characterSpeed = 2;
+    bulletSpeed = 5;
+    bulletAliveTimer = 10;
+    bulletLightRadius = 2;
+    reloadSpeed = 1;
+    lightRadius = 5;
+    }
 }

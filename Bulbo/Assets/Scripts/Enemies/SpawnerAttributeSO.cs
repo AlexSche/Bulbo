@@ -8,11 +8,21 @@ public class SpawnerAttributeSO : ScriptableObject
     public int defaultEnemies = 4;
     public int eliteEnemies = 0;
 
-    public void changeRadius(int amount) {
+    public void changeRadius(int amount)
+    {
         radius += amount;
     }
 
-    public void changeSpawnTimer(float amount) {
+    public void changeSpawnTimer(float amount)
+    {
         spawnTimer += amount;
+    }
+
+    public void resetAllStats()
+    {
+        radius = 15;
+        spawnTimer = 5;
+        defaultEnemies = 4;
+        eliteEnemies = 0;
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -17,6 +18,11 @@ public class MainMenu : MonoBehaviour
     {
         gameObject.SetActive(false);
         Time.timeScale = 1;
+    }
+
+    public void reloadScene() {
+        //string currentScene = SceneManager.GetActiveScene().name;
+        //SceneManager.LoadScene(currentScene);
     }
 
     public void ExitGame()
