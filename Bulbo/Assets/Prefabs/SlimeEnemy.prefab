@@ -5415,6 +5415,8 @@ MonoBehaviour:
   LightnovaSO: {fileID: 11400000, guid: 2f3c28b28f4daa84aa0a0999d03c1a30, type: 2}
   floatingHealthbar: {fileID: 1979037135702124296}
   particleSystem: {fileID: 3839346534149326577}
+  dissolveMaterial: {fileID: 2100000, guid: b88417b6a3dfec04fb73fceb00af307c, type: 2}
+  dissolveShader: {fileID: -6465566751694194690, guid: 9273b7d3f84a4174a80f4f390e1c998e, type: 3}
   died:
     m_PersistentCalls:
       m_Calls:

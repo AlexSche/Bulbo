@@ -8,7 +8,7 @@ public class TakingDamageVFX : MonoBehaviour
     void Start()
     {
         enemyControllerChannel.tookDamage += playTakingDamageVFX;
-        enemyControllerChannel.died += playDieingVFX;
+        enemyControllerChannel.died += stopPlayingVFX;
     }
 
     void playTakingDamageVFX(ParticleSystem particleSystem)
@@ -19,10 +19,9 @@ public class TakingDamageVFX : MonoBehaviour
         }
     }
 
-    void playDieingVFX(GameObject enemy, float xpWorth)
+    void stopPlayingVFX(GameObject enemy, float xpWorth)
     {
         isDead = true;
-        Debug.Log("DIED");
-        GameObject.Destroy(enemy);
+        //Destroy(enemy);
     }
 }

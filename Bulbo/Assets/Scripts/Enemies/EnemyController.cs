@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,11 +10,13 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private PowerUpSO laserEyesSO, LightnovaSO;
     [SerializeField] private FloatingHealthbar floatingHealthbar;
     [SerializeField] private new ParticleSystem particleSystem;
+    [SerializeField] private Material dissolveMaterial;
+    [SerializeField] private Shader dissolveShader;
+    private int dissolveAmount = Shader.PropertyToID("_DissolveAmount");
     [SerializeField] private UnityEvent<GameObject, float> died;
     [SerializeField] private UnityEvent<FloatingHealthbar, float, float> changedHealth;
     [SerializeField] private UnityEvent<GameObject> spawned;
     [SerializeField] private UnityEvent<ParticleSystem> tookDamage;
-
     [SerializeField] private UnityEvent<int> attackedPlayer;
     private GameObject player;
     private float currentHealth;
@@ -22,8 +25,10 @@ public class EnemyController : MonoBehaviour
     private Animator animator;
     private Vector3 targetPosition = Vector3.zero;
     private Coroutine damageCoroutine = null;
+    private bool isDead = false;
 
-    void Awake() {
+    void Awake()
+    {
         spawned?.Invoke(this.gameObject);
     }
     void Start()
@@ -41,18 +46,21 @@ public class EnemyController : MonoBehaviour
         targetPosition = player.transform.position;
         if (currentHealth <= 0)
         {
-            dies();
+            if (!isDead)
+            {
+                StartCoroutine(dissolve());
+            }
         }
     }
 
     IEnumerator moveEnemy()
     {
-        while (Vector3.Distance(transform.position, targetPosition) > 1f)
+        while (Vector3.Distance(transform.position, targetPosition) > 1f && !isDead)
         {
             Vector2 moveDirection = targetPosition - transform.position;
             transform.LookAt(targetPosition);
             animator.SetBool("isMoving", true);
-            transform.position = Vector3.Lerp(transform.position, targetPosition, 0.1f * (1-(enemyAttributeSO.speed/100)));
+            transform.position = Vector3.Lerp(transform.position, targetPosition, 0.1f * (1 - (enemyAttributeSO.speed / 100)));
             yield return new WaitForSeconds(0.4f);
         }
     }
@@ -63,16 +71,20 @@ public class EnemyController : MonoBehaviour
         {
             damageCoroutine = StartCoroutine(damageOverTime());
         }
-        if (other.gameObject.tag == "Lighthit") {
+        if (other.gameObject.tag == "Lighthit")
+        {
             takeDamage(LightnovaSO.damage);
         }
-        if (other.gameObject.tag == "Laserhit") {
+        if (other.gameObject.tag == "Laserhit")
+        {
             takeDamage(laserEyesSO.damage);
         }
     }
 
-    void OnCollisionEnter(Collision collision) {
-        if (collision.gameObject.tag == "Player") {
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
             attackedPlayer?.Invoke(enemyAttributeSO.attackDamage);
         }
     }
@@ -94,14 +106,35 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void takeDamage(float amount) {
-        currentHealth -= amount;
-        changedHealth?.Invoke(floatingHealthbar, enemyAttributeSO.health, currentHealth);
-        tookDamage?.Invoke(particleSystem);
+    private void takeDamage(float amount)
+    {
+        if (currentHealth > 0)
+        {
+            currentHealth -= amount;
+            changedHealth?.Invoke(floatingHealthbar, enemyAttributeSO.health, currentHealth);
+            tookDamage?.Invoke(particleSystem);
+        }
     }
 
-    private void dies() {
+    IEnumerator dissolve()
+    {
+        isDead = true;
         died?.Invoke(gameObject, enemyAttributeSO.xpWorth);
-        //Destroy(gameObject);
+        Material[] mats = gameObject.GetComponentInChildren<Renderer>().materials.ToArray();
+        float elapsedTime = 0f;
+        float dissolveTime = 0.75f;
+        while (elapsedTime < dissolveTime)
+        {
+            elapsedTime += Time.deltaTime;
+            float lerpedDissolve = Mathf.Lerp(0, 1.1f, elapsedTime / dissolveTime);
+            for (int i = 0; i < mats.Length; i++)
+            {
+
+                mats[i].shader = dissolveShader;
+                mats[i].SetFloat(dissolveAmount, lerpedDissolve);
+            }
+            yield return null;
+        }
+        Destroy(gameObject);
     }
 }

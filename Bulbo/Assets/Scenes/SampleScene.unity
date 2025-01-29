@@ -654,7 +654,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.42261827, y: 0, z: 0, w: 0.9063079}
-  m_LocalPosition: {x: 0, y: 17.007057, z: -13.537169}
+  m_LocalPosition: {x: 0, y: 12.007058, z: -9.537169}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1958,9 +1958,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAttributesSO: {fileID: 11400000, guid: f20b726637170c54b87d47cc5e7d3e31, type: 2}
-  defaultPlayerAttributesSO: {fileID: 11400000, guid: 0b8160ff20c4e3240855f28dc4ce505a, type: 2}
   spawnerAttributeSO: {fileID: 11400000, guid: 5cdde1acc17ce614ea173675e61dc60e, type: 2}
-  defaultSpawnerAttributeSO: {fileID: 11400000, guid: 1b5af8d38c789fc4d82cda64e616c3ef, type: 2}
 --- !u!1 &914626727
 GameObject:
   m_ObjectHideFlags: 0
@@ -4326,7 +4324,7 @@ Transform:
   m_GameObject: {fileID: 2116850779}
   serializedVersion: 2
   m_LocalRotation: {x: 0.42261827, y: 0, z: 0, w: 0.9063079}
-  m_LocalPosition: {x: 0, y: 17.007057, z: -13.537169}
+  m_LocalPosition: {x: 0, y: 12.007058, z: -9.537169}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4344,7 +4342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b5d7c088409d9a40b7b09aa707777f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetOffset: {x: 0, y: 14, z: -4}
+  TargetOffset: {x: 0, y: 9, z: 0}
   TrackerSettings:
     BindingMode: 4
     PositionDamping: {x: 1, y: 1, z: 1}
