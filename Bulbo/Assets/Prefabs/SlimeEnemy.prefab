@@ -402,7 +402,6 @@ GameObject:
   - component: {fileID: 4314610885932834520}
   - component: {fileID: 3839346534149326577}
   - component: {fileID: 9140926275025133721}
-  - component: {fileID: 2970668243701580390}
   m_Layer: 0
   m_Name: DamageTakenEffect
   m_TagString: Untagged
@@ -5283,19 +5282,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &2970668243701580390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8241274637787376800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fa3ddfe3297926478090fb9e8d07e4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyControllerChannel: {fileID: 11400000, guid: a1d2f6fa87cf6f94cba1266f37bcc330, type: 2}
 --- !u!1001 &2769971716420821774
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5415,7 +5401,6 @@ MonoBehaviour:
   LightnovaSO: {fileID: 11400000, guid: 2f3c28b28f4daa84aa0a0999d03c1a30, type: 2}
   floatingHealthbar: {fileID: 1979037135702124296}
   particleSystem: {fileID: 3839346534149326577}
-  dissolveMaterial: {fileID: 2100000, guid: b88417b6a3dfec04fb73fceb00af307c, type: 2}
   dissolveShader: {fileID: -6465566751694194690, guid: 9273b7d3f84a4174a80f4f390e1c998e, type: 3}
   died:
     m_PersistentCalls:
@@ -5492,9 +5477,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  currentHealth: 0
-  isDead: 0
-  isDissolving: 0
 --- !u!65 &8851525099931496146
 BoxCollider:
   m_ObjectHideFlags: 0

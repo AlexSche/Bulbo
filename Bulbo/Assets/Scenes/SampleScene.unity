@@ -1024,11 +1024,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 468035387}
   m_CullTransparentMesh: 1
---- !u!198 &603485781 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 8405965429679038013, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
-  m_PrefabInstance: {fileID: 2282262038925929977}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &604488587
 GameObject:
   m_ObjectHideFlags: 0
@@ -4408,9 +4403,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 245411072996567702, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
-      propertyPath: particleSystem
+      propertyPath: particleLevelUp
       value: 
-      objectReference: {fileID: 603485781}
+      objectReference: {fileID: 3348394847045006773, guid: 9198f68814db2344386db92fac8a98dc, type: 3}
     - target: {fileID: 1632776876240259180, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

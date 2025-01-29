@@ -43,7 +43,7 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        if (currentHealth <= 0)
+        if (currentHealth <= 1)
         {
             if (isDead && !isDissolving)
             {
@@ -131,13 +131,16 @@ public class EnemyController : MonoBehaviour
 
     private void die()
     {
+        if (!isDead)
+        {
+            died?.Invoke(gameObject, enemyAttributeSO.xpWorth);
+        }
         isDead = true;
     }
 
     IEnumerator dissolve()
     {
         isDissolving = true;
-        died?.Invoke(gameObject, enemyAttributeSO.xpWorth);
         Material[] mats = gameObject.GetComponentInChildren<Renderer>().materials.ToArray();
         float elapsedTime = 0f;
         float dissolveTime = 1.2f;
