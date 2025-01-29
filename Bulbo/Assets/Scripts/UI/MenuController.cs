@@ -4,11 +4,9 @@ using UnityEngine.InputSystem;
 public class MenuController : MonoBehaviour
 {
     [SerializeField] PlayerInput playerInput;
-    [SerializeField] MainMenu mainMenu;
     private InputAction escPressed;
-    void Start()
-    {
-        gameObject.SetActive(false);
+
+    void Awake() {
         escPressed = playerInput.actions.FindAction("OpenMenu");
         escPressed.performed += _ => freezeGame();
     }
@@ -23,9 +21,5 @@ public class MenuController : MonoBehaviour
     {
         Time.timeScale = 1;
         gameObject.SetActive(false);
-    }
-
-    public void returnToMainMenu() {
-        mainMenu.openMainMenu();
     }
 }

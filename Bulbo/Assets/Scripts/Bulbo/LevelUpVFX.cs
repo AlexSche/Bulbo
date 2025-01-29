@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class LevelUpVFX : MonoBehaviour
 {
-    private new ParticleSystem particleSystem;
+    [SerializeField] private new ParticleSystem particleSystem;
     [SerializeField] PlayerControllerChannel playerControllerChannel;
 
     void Start() {

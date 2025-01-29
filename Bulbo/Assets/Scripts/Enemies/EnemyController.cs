@@ -115,8 +115,12 @@ public class EnemyController : MonoBehaviour
         currentHealth -= amount;
         if (currentHealth > 0)
         {
-            changedHealth?.Invoke(floatingHealthbar, enemyAttributeSO.health, currentHealth);
-            tookDamage?.Invoke(particleSystem);
+            if (particleSystem != null)
+            {
+                particleSystem.Play();
+            }
+            //changedHealth?.Invoke(floatingHealthbar, enemyAttributeSO.health, currentHealth);
+            //tookDamage?.Invoke(particleSystem);
         }
         else
         {
@@ -136,7 +140,7 @@ public class EnemyController : MonoBehaviour
         died?.Invoke(gameObject, enemyAttributeSO.xpWorth);
         Material[] mats = gameObject.GetComponentInChildren<Renderer>().materials.ToArray();
         float elapsedTime = 0f;
-        float dissolveTime = 0.75f;
+        float dissolveTime = 1.2f;
         while (elapsedTime < dissolveTime)
         {
             elapsedTime += Time.deltaTime;

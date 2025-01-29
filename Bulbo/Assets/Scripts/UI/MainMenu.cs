@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     bool reloadedScene = false;
+    [SerializeField] private GameObject pauseMenu;
     public void Awake()
     {
         reloadedScene = false;
@@ -24,6 +25,7 @@ public class MainMenu : MonoBehaviour
         }
         else
         {
+            pauseMenu.SetActive(false);
             gameObject.SetActive(false);
             Time.timeScale = 1;
         }
