@@ -40,4 +40,12 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void restartFromDeathMenu()
+    {
+        reloadScene();
+        Time.timeScale = 1;
+        pauseMenu.SetActive(false);
+        gameObject.SetActive(false);
+    }
 }

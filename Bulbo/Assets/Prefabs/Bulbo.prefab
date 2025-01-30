@@ -755,6 +755,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  playerDied:
+    m_PersistentCalls:
+      m_Calls: []
   playerAttributesSO: {fileID: 11400000, guid: f20b726637170c54b87d47cc5e7d3e31, type: 2}
 --- !u!114 &3150632123946079820
 MonoBehaviour:

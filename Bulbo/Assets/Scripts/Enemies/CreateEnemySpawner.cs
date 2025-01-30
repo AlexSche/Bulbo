@@ -36,11 +36,11 @@ public class CreateEnemySpawner : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(spawnerAttributeSO.spawnTimer);
             Vector3 spawnPos = determineSpawnLocation(Vector3.zero, spawnerAttributeSO.radius);
             for (int i = 0; i < spawnerAttributeSO.defaultEnemies; i++)
             {
-                if (i%4 == 0) {
+                if (i % 4 == 0)
+                {
                     spawnPos = determineSpawnLocation(Vector3.zero, spawnerAttributeSO.radius);
                 }
                 Vector3 enemySpawnPos = determineSpawnLocation(spawnPos, 4);
@@ -49,13 +49,15 @@ public class CreateEnemySpawner : MonoBehaviour
             }
             for (int i = 0; i < spawnerAttributeSO.eliteEnemies; i++)
             {
-                if (i%4 == 0) {
+                if (i % 4 == 0)
+                {
                     spawnPos = determineSpawnLocation(Vector3.zero, spawnerAttributeSO.radius);
                 }
                 Vector3 enemySpawnPos = determineSpawnLocation(spawnPos, 4);
                 GameObject spawnedEnemy = Instantiate(redSlimeEnemy, enemySpawnPos, Quaternion.identity);
                 enemies.Add(spawnedEnemy);
             }
+            yield return new WaitForSeconds(spawnerAttributeSO.spawnTimer);
         }
     }
 

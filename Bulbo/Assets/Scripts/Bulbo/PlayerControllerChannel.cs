@@ -6,7 +6,7 @@ public class PlayerControllerChannel : ScriptableObject
     public delegate void LevelChangedCallback();
     public LevelChangedCallback levelChanged;
 
-    public delegate void HealthChangedCallback(float maxValue, float currenctValue);
+    public delegate void HealthChangedCallback(float maxValue, float currentValue);
     public HealthChangedCallback healthChanged;
 
     public delegate void XPChangedCallback(float amountNeeded, float xpReceived);
@@ -15,9 +15,15 @@ public class PlayerControllerChannel : ScriptableObject
     public delegate void AttackedByEnemyCallback(int damage);
     public AttackedByEnemyCallback attackedByEnemy;
 
-    public void changeHealth(float maxValue, float currenctValue)
+    public delegate void PlayerDiedCallback();
+    public PlayerDiedCallback playerDied;
+
+    public void changeHealth(float maxValue, float currentValue)
     {
-        healthChanged?.Invoke(maxValue, currenctValue);
+        healthChanged?.Invoke(maxValue, currentValue);
+        if (currentValue <= 0) {
+            playerDied?.Invoke();
+        }
     }
 
     public void changeXP(float amountNeeded, float xpReceived)

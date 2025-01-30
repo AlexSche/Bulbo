@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eb892f0e43b79c459fd40cbbb4837e9, type: 3}
   m_Name: BulboAttributes
   m_EditorClassIdentifier: 
-  hitPoints: 100
-  level: 23
-  xp: 5
-  requiredXP: 460
-  damage: 35
-  tickSpeed: -0.39999998
-  characterSpeed: 3
+  hitPoints: 5
+  level: 1
+  xp: 0
+  requiredXP: 35
+  damage: 0
+  tickSpeed: 2
+  characterSpeed: 2
   bulletSpeed: 5
-  bulletAliveTimer: 18
+  bulletAliveTimer: 10
   bulletLightRadius: 2
-  reloadSpeed: 0.40000004
+  reloadSpeed: 2
   lightRadius: 5
