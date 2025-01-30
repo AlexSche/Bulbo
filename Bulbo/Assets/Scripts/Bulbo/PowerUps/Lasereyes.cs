@@ -14,7 +14,10 @@ public class Lasereyes : MonoBehaviour
     private GameObject player;
     void Start()
     {
-        player = GameObject.FindWithTag("Player");
+        player = GameObject.FindWithTag("Player"); 
+    }
+
+    public void activateLaser() {
         StartCoroutine(shootLasersAtClosestEnemy());
     }
 
