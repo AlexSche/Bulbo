@@ -6,7 +6,7 @@ public class PlayerAttributesSO : ScriptableObject
     public int hitPoints = 100;
     public int level = 1;
     public float xp = 0;
-    public float requiredXP = 120;
+    public float requiredXP = 35;
     public float damage = 20;
     public float tickSpeed = 1;
     public float characterSpeed = 2;
@@ -75,7 +75,7 @@ public class PlayerAttributesSO : ScriptableObject
         {
             level++;
             xp = requiredXP - xp;
-            requiredXP = level * 20;
+            requiredXP = level * 35;
         }
     }
 
@@ -83,14 +83,14 @@ public class PlayerAttributesSO : ScriptableObject
     hitPoints = 100;
     level = 1;
     xp = 0;
-    requiredXP = 120;
+    requiredXP = 35;
     damage = 20;
-    tickSpeed = 1;
+    tickSpeed = 2;
     characterSpeed = 2;
     bulletSpeed = 5;
     bulletAliveTimer = 10;
     bulletLightRadius = 2;
-    reloadSpeed = 1;
+    reloadSpeed = 2;
     lightRadius = 5;
     }
 }
