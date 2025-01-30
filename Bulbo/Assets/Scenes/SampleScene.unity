@@ -1888,6 +1888,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7e53b13b1f9626049997084eef19834b, type: 2}
   - {fileID: 11400000, guid: 5c7978bbbc7b7f54e81347822662fc9c, type: 2}
   - {fileID: 11400000, guid: 5988bf1ec41a3614399cabe91fee5b65, type: 2}
+  - {fileID: 11400000, guid: 39ec519920bc2d34a92d7e51ecd312a7, type: 2}
+  - {fileID: 11400000, guid: 088fbb014833afe46a9c786395878f9e, type: 2}
   playerControllerChannel: {fileID: 11400000, guid: 2805be3dfb0839e4aaee41cc008e565e, type: 2}
   upgradeTexts:
   - {fileID: 1295144486}
