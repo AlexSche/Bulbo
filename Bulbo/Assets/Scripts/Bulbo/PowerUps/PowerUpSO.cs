@@ -7,6 +7,7 @@ public class PowerUpSO : ScriptableObject
     public float radius = 5f;
     public float damage = 20f;
     public int ricochets = 1;
+    public bool isActive = false;
 
     [HideInInspector]
     public void changeCooldown(float amount)
@@ -26,6 +27,10 @@ public class PowerUpSO : ScriptableObject
     public void increaseRicochets()
     {
         ricochets++;
+    }
+
+    public void activatePowerup() {
+        isActive = true;
     }
 
 }
