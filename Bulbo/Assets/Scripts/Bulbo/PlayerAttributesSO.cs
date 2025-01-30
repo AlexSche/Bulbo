@@ -24,7 +24,9 @@ public class PlayerAttributesSO : ScriptableObject
 
     public void reduceReloadSpeed(float amount)
     {
-        reloadSpeed -= amount;
+        Debug.Log(reloadSpeed);
+        reloadSpeed = reloadSpeed - amount;
+        Debug.Log("New Reloadspeed: " + reloadSpeed);
     }
 
     public void changeLightRaidus(float amount)

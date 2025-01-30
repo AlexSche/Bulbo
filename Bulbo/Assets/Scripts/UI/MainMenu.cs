@@ -33,8 +33,7 @@ public class MainMenu : MonoBehaviour
 
     public void reloadScene()
     {
-        string currentScene = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(currentScene);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void ExitGame()
