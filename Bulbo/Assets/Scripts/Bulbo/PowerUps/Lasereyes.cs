@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Lasereyes : MonoBehaviour
 {
@@ -10,14 +11,17 @@ public class Lasereyes : MonoBehaviour
     public GameObject LaserPrefab;
     [SerializeField] private PowerUpSO powerUpSO;
     [SerializeField] private CreateEnemySpawner enemySpawner;
+    public UnityEvent laserEyesActived;
 
     private GameObject player;
     void Start()
     {
-        player = GameObject.FindWithTag("Player"); 
+        player = GameObject.FindWithTag("Player");
+        laserEyesActived.AddListener(activateLaser);
     }
 
-    public void activateLaser() {
+    public void activateLaser()
+    {
         StartCoroutine(shootLasersAtClosestEnemy());
     }
 
@@ -84,19 +88,22 @@ public class Lasereyes : MonoBehaviour
     {
         while (true)
         {
-            List<Vector3> positions = findXClosestEnemies(powerUpSO.ricochets);
-            //GameObject closestEnemy = findClosestEnemy();
-            if (positions.Count > 0)
+            if (powerUpSO.isActive)
             {
-                Transform chosenSpawnPoint = laserSpawnPoint[0].transform;
-                chosenSpawnPoint.LookAt(positions[0]);
-                Debug.DrawLine(chosenSpawnPoint.position, positions[0], Color.cyan, 10);
-                if (Vector3.Distance(chosenSpawnPoint.position, positions[0]) <= powerUpSO.radius)
+                List<Vector3> positions = findXClosestEnemies(powerUpSO.ricochets);
+                //GameObject closestEnemy = findClosestEnemy();
+                if (positions.Count > 0)
                 {
-                    GameObject laser = Instantiate(LaserPrefab, chosenSpawnPoint.position, chosenSpawnPoint.rotation);
-                    Laser laserScript = laser.GetComponent<Laser>();
-                    laserScript.setDestinationPosition(positions[0]);
-                    laserScript.setDestinationPositions(positions);
+                    Transform chosenSpawnPoint = laserSpawnPoint[0].transform;
+                    chosenSpawnPoint.LookAt(positions[0]);
+                    Debug.DrawLine(chosenSpawnPoint.position, positions[0], Color.cyan, 10);
+                    if (Vector3.Distance(chosenSpawnPoint.position, positions[0]) <= powerUpSO.radius)
+                    {
+                        GameObject laser = Instantiate(LaserPrefab, chosenSpawnPoint.position, chosenSpawnPoint.rotation);
+                        Laser laserScript = laser.GetComponent<Laser>();
+                        laserScript.setDestinationPosition(positions[0]);
+                        laserScript.setDestinationPositions(positions);
+                    }
                 }
             }
             yield return new WaitForSeconds(5f);

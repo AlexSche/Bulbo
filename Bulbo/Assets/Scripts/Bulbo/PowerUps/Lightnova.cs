@@ -24,20 +24,23 @@ public class Lightnova : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(powerUpSO.cooldown);
-            Vector3 castOnPosition = new Vector3(Random.Range(0,15), 15, Random.Range(0,15));
-            GameObject lightNova = Instantiate(lightNovaPrefab, castOnPosition, Quaternion.Euler(90, 0, 0));
-            Light light = lightNova.GetComponent<Light>();
-            SphereCollider sphereCollider = lightNova.GetComponent<SphereCollider>();
-            while (light.spotAngle < powerUpSO.radius * 10)
+            if (powerUpSO.isActive)
             {
-                light.spotAngle += 0.05f;
-                if (sphereCollider.radius * 10 < light.spotAngle)
+                Vector3 castOnPosition = new Vector3(Random.Range(0, 15), 15, Random.Range(0, 15));
+                GameObject lightNova = Instantiate(lightNovaPrefab, castOnPosition, Quaternion.Euler(90, 0, 0));
+                Light light = lightNova.GetComponent<Light>();
+                SphereCollider sphereCollider = lightNova.GetComponent<SphereCollider>();
+                while (light.spotAngle < powerUpSO.radius * 10)
                 {
-                    sphereCollider.radius += 0.05f / 10;
+                    light.spotAngle += 0.05f;
+                    if (sphereCollider.radius * 10 < light.spotAngle)
+                    {
+                        sphereCollider.radius += 0.05f / 10;
+                    }
+                    yield return new WaitForNextFrameUnit();
                 }
-                yield return new WaitForNextFrameUnit();
+                Destroy(lightNova);
             }
-            Destroy(lightNova);
         }
     }
 }

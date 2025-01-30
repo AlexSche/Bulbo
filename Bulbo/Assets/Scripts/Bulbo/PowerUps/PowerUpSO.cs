@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "PowerUpSO", menuName = "Scriptable Objects/PowerUpSO")]
@@ -6,7 +7,7 @@ public class PowerUpSO : ScriptableObject
     public float cooldown = 10f;
     public float radius = 5f;
     public float damage = 20f;
-    public int ricochets = 1;
+    public int ricochets = 0;
     public bool isActive = false;
 
     [HideInInspector]
@@ -32,5 +33,4 @@ public class PowerUpSO : ScriptableObject
     public void activatePowerup() {
         isActive = true;
     }
-
 }

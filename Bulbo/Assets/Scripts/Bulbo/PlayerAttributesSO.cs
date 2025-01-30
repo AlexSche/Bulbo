@@ -36,7 +36,7 @@ public class PlayerAttributesSO : ScriptableObject
 
     public void changeCharacterSpeed(float amount)
     {
-        reloadSpeed += amount;
+        characterSpeed += amount;
     }
 
     public void changeBulletSpeed(float amount)
@@ -75,7 +75,7 @@ public class PlayerAttributesSO : ScriptableObject
         {
             level++;
             xp = requiredXP - xp;
-            requiredXP = level * 35;
+            requiredXP = level * 20;
         }
     }
 
