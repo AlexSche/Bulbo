@@ -12,7 +12,7 @@ public class LevelProgression : MonoBehaviour
     private int progessTreshhold = 20;
     void Start()
     {
-        playerControllerChannel.levelChanged += increaseStats;
+        //playerControllerChannel.levelChanged += increaseStats;
         enemyControllerChannel.died += addDeadEnemey;
         StartCoroutine(progressLevel());
     }

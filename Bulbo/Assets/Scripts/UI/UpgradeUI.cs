@@ -48,7 +48,6 @@ public class UpgradeUI : MonoBehaviour
     public void upgradeSelected()
     {
         Time.timeScale = 1;
-        Debug.Log("Selected Upgrade 1!!!");
         upgradeUI.SetActive(false);
     }
 }

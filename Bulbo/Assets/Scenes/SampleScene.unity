@@ -252,6 +252,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 754428110}
+        m_TargetAssemblyTypeName: UpgradeSelector, Assembly-CSharp
+        m_MethodName: upgradeSelected
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &93518139
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1842,6 +1854,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 704344451}
   m_CullTransparentMesh: 1
+--- !u!1 &754428109
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 754428111}
+  - component: {fileID: 754428110}
+  m_Layer: 0
+  m_Name: UpgradeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &754428110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754428109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff3a01404225d3a46b592e748505fd5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeSOs:
+  - {fileID: 11400000, guid: 6789c6285474e0849a5e2c0651316558, type: 2}
+  - {fileID: 11400000, guid: 7e53b13b1f9626049997084eef19834b, type: 2}
+  - {fileID: 11400000, guid: 5c7978bbbc7b7f54e81347822662fc9c, type: 2}
+  - {fileID: 11400000, guid: 5988bf1ec41a3614399cabe91fee5b65, type: 2}
+  playerControllerChannel: {fileID: 11400000, guid: 2805be3dfb0839e4aaee41cc008e565e, type: 2}
+  upgradeTexts:
+  - {fileID: 1295144486}
+  - {fileID: 1356654685}
+  - {fileID: 2039807565}
+--- !u!4 &754428111
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 754428109}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &763300108
 GameObject:
   m_ObjectHideFlags: 0
@@ -3999,7 +4065,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1397731843}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1071786851}
+        m_TargetAssemblyTypeName: UpgradeUI, Assembly-CSharp
+        m_MethodName: upgradeSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 754428110}
+        m_TargetAssemblyTypeName: UpgradeSelector, Assembly-CSharp
+        m_MethodName: upgradeSelected
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1511945504
 GameObject:
   m_ObjectHideFlags: 0
@@ -4781,7 +4871,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1894363252}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1071786851}
+        m_TargetAssemblyTypeName: UpgradeUI, Assembly-CSharp
+        m_MethodName: upgradeSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 754428110}
+        m_TargetAssemblyTypeName: UpgradeSelector, Assembly-CSharp
+        m_MethodName: upgradeSelected
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1920412340
 GameObject:
   m_ObjectHideFlags: 0
@@ -5637,4 +5751,5 @@ SceneRoots:
   - {fileID: 1071786850}
   - {fileID: 1195283254}
   - {fileID: 1511945505}
+  - {fileID: 754428111}
   - {fileID: 1214274099}
