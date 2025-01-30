@@ -3,10 +3,21 @@ using UnityEngine.InputSystem;
 
 public class MenuController : MonoBehaviour
 {
+    public static MenuController instance;
     [SerializeField] PlayerInput playerInput;
+    [SerializeField] GameObject pauseMenu;
     private InputAction escPressed;
 
     void Awake() {
+        // if instance exists, destroy the new instance, else create the singleton
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+
         escPressed = playerInput.actions.FindAction("OpenMenu");
         escPressed.performed += _ => freezeGame();
     }
@@ -14,12 +25,12 @@ public class MenuController : MonoBehaviour
     void freezeGame()
     {
         Time.timeScale = 0;
-        gameObject.SetActive(true);
+        pauseMenu.SetActive(true);
     }
 
     public void resumeGame()
     {
         Time.timeScale = 1;
-        gameObject.SetActive(false);
+        pauseMenu.SetActive(false);
     }
 }
