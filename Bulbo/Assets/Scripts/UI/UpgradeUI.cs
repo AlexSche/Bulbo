@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class UpgradeUI : MonoBehaviour
 {
-
+    public static UpgradeUI instance;
+    [SerializeField] private GameObject upgradeUI;
     [SerializeField] private TMP_Text upgrade1TMP;
     [SerializeField] private TMP_Text upgrade2TMP;
     [SerializeField] private TMP_Text upgrade3TMP;
@@ -11,19 +12,27 @@ public class UpgradeUI : MonoBehaviour
 
     void Awake()
     {
+        // make it singleton
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
         playerControllerChannel.levelChanged += openUI;
     }
 
     void Start()
     {
-        gameObject.SetActive(false);
+        upgradeUI.SetActive(false);
     }
 
     public void openUI()
     {
-        if (gameObject != null)
+        if (upgradeUI != null)
         {
-            gameObject.SetActive(true);
+            upgradeUI.SetActive(true);
             Time.timeScale = 0;
             setUI();
         }
@@ -40,6 +49,6 @@ public class UpgradeUI : MonoBehaviour
     {
         Time.timeScale = 1;
         Debug.Log("Selected Upgrade 1!!!");
-        gameObject.SetActive(false);
+        upgradeUI.SetActive(false);
     }
 }

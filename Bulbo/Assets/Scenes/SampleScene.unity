@@ -240,7 +240,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1615170069}
+      - m_Target: {fileID: 1071786851}
         m_TargetAssemblyTypeName: UpgradeUI, Assembly-CSharp
         m_MethodName: upgradeSelected
         m_Mode: 1
@@ -2685,6 +2685,7 @@ GameObject:
   - component: {fileID: 1071786849}
   - component: {fileID: 1071786848}
   - component: {fileID: 1071786847}
+  - component: {fileID: 1071786851}
   m_Layer: 5
   m_Name: Ingame_Canvas
   m_TagString: Untagged
@@ -2776,6 +2777,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1071786851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071786846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c987588e9ddb829418300cd62063f1dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeUI: {fileID: 1615170065}
+  upgrade1TMP: {fileID: 1295144486}
+  upgrade2TMP: {fileID: 1356654685}
+  upgrade3TMP: {fileID: 2039807565}
+  playerControllerChannel: {fileID: 11400000, guid: 2805be3dfb0839e4aaee41cc008e565e, type: 2}
 --- !u!1 &1145962296
 GameObject:
   m_ObjectHideFlags: 0
@@ -4046,7 +4064,6 @@ GameObject:
   - component: {fileID: 1615170066}
   - component: {fileID: 1615170068}
   - component: {fileID: 1615170067}
-  - component: {fileID: 1615170069}
   m_Layer: 5
   m_Name: Upgrades
   m_TagString: Untagged
@@ -4114,22 +4131,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1615170065}
   m_CullTransparentMesh: 1
---- !u!114 &1615170069
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1615170065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c987588e9ddb829418300cd62063f1dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upgrade1TMP: {fileID: 1295144486}
-  upgrade2TMP: {fileID: 1356654685}
-  upgrade3TMP: {fileID: 2039807565}
-  playerControllerChannel: {fileID: 11400000, guid: 2805be3dfb0839e4aaee41cc008e565e, type: 2}
 --- !u!1 &1658222290
 GameObject:
   m_ObjectHideFlags: 0
