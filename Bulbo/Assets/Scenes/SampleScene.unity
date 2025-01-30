@@ -1888,7 +1888,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7e53b13b1f9626049997084eef19834b, type: 2}
   - {fileID: 11400000, guid: 5c7978bbbc7b7f54e81347822662fc9c, type: 2}
   - {fileID: 11400000, guid: 5988bf1ec41a3614399cabe91fee5b65, type: 2}
-  - {fileID: 11400000, guid: 7608528da9e9bca44b3d4f55a50d03f4, type: 2}
   playerControllerChannel: {fileID: 11400000, guid: 2805be3dfb0839e4aaee41cc008e565e, type: 2}
   upgradeTexts:
   - {fileID: 1295144486}
@@ -3134,6 +3133,9 @@ MonoBehaviour:
   LaserPrefab: {fileID: 6474574726147093763, guid: 41be360d8244f39478fbadb09777f7aa, type: 3}
   powerUpSO: {fileID: 11400000, guid: 9d6bda008beb80848836e1de4fcf21d3, type: 2}
   enemySpawner: {fileID: 1294308351}
+  laserEyesActived:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1214274095
 GameObject:
   m_ObjectHideFlags: 0
