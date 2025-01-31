@@ -15,7 +15,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private UnityEvent<GameObject, float> died;
     [SerializeField] private UnityEvent<FloatingHealthbar, float, float> changedHealth;
     [SerializeField] private UnityEvent<GameObject> spawned;
-    [SerializeField] private UnityEvent<ParticleSystem> tookDamage;
+    [SerializeField] private UnityEvent tookDamage;
     [SerializeField] private UnityEvent<int> attackedPlayer;
     private GameObject player;
     private float currentHealth;
@@ -122,7 +122,7 @@ public class EnemyController : MonoBehaviour
                 particleSystem.Play();
             }
             //changedHealth?.Invoke(floatingHealthbar, enemyAttributeSO.health, currentHealth);
-            //tookDamage?.Invoke(particleSystem);
+            tookDamage?.Invoke();
         }
         else
         {

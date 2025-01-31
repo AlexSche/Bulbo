@@ -12,7 +12,7 @@ public class EnemyControllerChannel : ScriptableObject
     public delegate void DiedCallback(GameObject enemy, float xpWorth);
     public DiedCallback died;
 
-    public delegate void TookDamageCallback(ParticleSystem particleSystem);
+    public delegate void TookDamageCallback();
     public TookDamageCallback tookDamage;
 
 
@@ -30,7 +30,7 @@ public class EnemyControllerChannel : ScriptableObject
         died?.Invoke(enemy, xpWorth);
     }
 
-    public void enemyTookDamage(ParticleSystem particleSystem) {
-        tookDamage?.Invoke(particleSystem);
+    public void enemyTookDamage() {
+        tookDamage?.Invoke();
     }
 }
