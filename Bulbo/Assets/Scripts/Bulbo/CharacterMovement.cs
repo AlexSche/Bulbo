@@ -21,6 +21,10 @@ public class CharacterMovement : MonoBehaviour
     private float completeShootAnimationSpeed = 0;
     private float shootTimer = 0;
     private int currentHealth = 100;
+
+    void Awake() {
+        currentHealth = playerAttributesSO.hitPoints;
+    }
     void Start()
     {
         currentHealth = playerAttributesSO.hitPoints;
@@ -100,5 +104,10 @@ public class CharacterMovement : MonoBehaviour
             onLevelChanged?.Invoke();
         }
         onXPChanged?.Invoke(playerAttributesSO.requiredXP, playerAttributesSO.xp);
+    }
+
+    public void resetHealth() {
+        currentHealth = playerAttributesSO.hitPoints;
+        onHealthChanged?.Invoke(playerAttributesSO.hitPoints, currentHealth);
     }
 }
