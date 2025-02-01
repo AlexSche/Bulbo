@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eb892f0e43b79c459fd40cbbb4837e9, type: 3}
   m_Name: DefaultAttributes
   m_EditorClassIdentifier: 
-  hitPoints: 50
+  hitPoints: 100
   level: 1
   xp: 0
-  requiredXP: 60
+  requiredXP: 35
   damage: 15
   tickSpeed: 1
   characterSpeed: 4
   bulletSpeed: 5
   bulletAliveTimer: 5
   bulletLightRadius: 1.5
-  reloadSpeed: 1
+  reloadSpeed: 1.5
   lightRadius: 5
