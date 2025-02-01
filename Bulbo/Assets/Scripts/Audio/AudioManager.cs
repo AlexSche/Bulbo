@@ -12,6 +12,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource audioSourcePlayerLightAttack;
     [SerializeField] AudioSource audioSourceEnemyDamaged;
     [SerializeField] AudioSource audioSourceEnemyDied;
+    [SerializeField] AudioSource audioSourceMenuTheme;
 
     void Awake()
     {
@@ -60,5 +61,9 @@ public class AudioManager : MonoBehaviour
 
     public void playUpgradeSelected() {
         audioSourceUI.Play();
+    }
+
+    public void stopMenuTheme() {
+        audioSourceMenuTheme.Stop();
     }
 }
