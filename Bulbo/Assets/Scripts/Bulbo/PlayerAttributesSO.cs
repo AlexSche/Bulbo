@@ -16,7 +16,6 @@ public class PlayerAttributesSO : ScriptableObject
     public float reloadSpeed = 1;
     public float lightRadius = 5;
 
-
     public void changeHitpoints(int amount)
     {
         hitPoints += amount;
@@ -24,9 +23,7 @@ public class PlayerAttributesSO : ScriptableObject
 
     public void reduceReloadSpeed(float amount)
     {
-        Debug.Log(reloadSpeed);
         reloadSpeed = reloadSpeed - amount;
-        Debug.Log("New Reloadspeed: " + reloadSpeed);
     }
 
     public void changeLightRaidus(float amount)
@@ -79,18 +76,19 @@ public class PlayerAttributesSO : ScriptableObject
         }
     }
 
-    public void resetAllStats() {
-    hitPoints = 100;
-    level = 1;
-    xp = 0;
-    requiredXP = 35;
-    damage = 20;
-    tickSpeed = 2;
-    characterSpeed = 2;
-    bulletSpeed = 5;
-    bulletAliveTimer = 10;
-    bulletLightRadius = 2;
-    reloadSpeed = 2;
-    lightRadius = 15;
+    public void resetAllStats()
+    {
+        hitPoints = 100;
+        level = 1;
+        xp = 0;
+        requiredXP = 35;
+        damage = 20;
+        tickSpeed = 2;
+        characterSpeed = 2;
+        bulletSpeed = 5;
+        bulletAliveTimer = 10;
+        bulletLightRadius = 2;
+        reloadSpeed = 2;
+        lightRadius = 15;
     }
 }

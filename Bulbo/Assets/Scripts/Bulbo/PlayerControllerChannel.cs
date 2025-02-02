@@ -18,6 +18,14 @@ public class PlayerControllerChannel : ScriptableObject
     public delegate void PlayerDiedCallback();
     public PlayerDiedCallback playerDied;
 
+    public delegate void MaxHPChangedCallback(int amount);
+    public MaxHPChangedCallback maxHPChanged;
+
+    public void changeMaxHP(int amount)
+    {
+        maxHPChanged?.Invoke(amount);
+    }
+
     public void changeHealth(float maxValue, float currentValue)
     {
         healthChanged?.Invoke(maxValue, currentValue);
@@ -32,12 +40,14 @@ public class PlayerControllerChannel : ScriptableObject
     {
         levelChanged?.Invoke();
     }
-    
-    public void enemyAttacked(int damage) {
+
+    public void enemyAttacked(int damage)
+    {
         attackedByEnemy?.Invoke(damage);
     }
 
-    public void playerDiedCB() {
+    public void playerDiedCB()
+    {
         playerDied?.Invoke();
     }
 }

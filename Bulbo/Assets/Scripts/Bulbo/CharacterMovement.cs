@@ -32,6 +32,7 @@ public class CharacterMovement : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         enemyControllerChannel.died += getXP;
         playerControllerChannel.attackedByEnemy += takeDamage;
+        playerControllerChannel.maxHPChanged += healHealth;
         moveAction = playerInput.actions.FindAction("Move");
         StartCoroutine(automaticShooting(playerAttributesSO.reloadSpeed));
     }
@@ -117,5 +118,10 @@ public class CharacterMovement : MonoBehaviour
     {
         currentHealth = playerAttributesSO.hitPoints;
         playerControllerChannel.healthChanged?.Invoke(playerAttributesSO.hitPoints, currentHealth);
+    }
+
+    public void healHealth(int amount)
+    {
+        currentHealth += amount;
     }
 }
