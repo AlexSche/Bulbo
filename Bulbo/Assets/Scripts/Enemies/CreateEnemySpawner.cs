@@ -7,6 +7,7 @@ public class CreateEnemySpawner : MonoBehaviour
     public List<GameObject> enemies = new List<GameObject>();
     [SerializeField] private GameObject slimeEnemy;
     [SerializeField] private GameObject redSlimeEnemy;
+    [SerializeField] private GameObject rangedSlimeEnemy;
     [SerializeField] private EnemyControllerChannel enemyControllerChannel;
     public SpawnerAttributeSO spawnerAttributeSO;
     private Vector3 center = Vector3.zero;
@@ -57,6 +58,17 @@ public class CreateEnemySpawner : MonoBehaviour
                 GameObject spawnedEnemy = Instantiate(redSlimeEnemy, enemySpawnPos, Quaternion.identity);
                 enemies.Add(spawnedEnemy);
             }
+            for (int i = 0; i < spawnerAttributeSO.rangedEnemies; i++)
+            {
+                if (i % 4 == 0)
+                {
+                    spawnPos = determineSpawnLocation(Vector3.zero, spawnerAttributeSO.radius);
+                }
+                Vector3 enemySpawnPos = determineSpawnLocation(spawnPos, 4);
+                GameObject spawnedEnemy = Instantiate(rangedSlimeEnemy, enemySpawnPos, Quaternion.identity);
+                enemies.Add(spawnedEnemy);
+            }
+
             yield return new WaitForSeconds(spawnerAttributeSO.spawnTimer);
         }
     }

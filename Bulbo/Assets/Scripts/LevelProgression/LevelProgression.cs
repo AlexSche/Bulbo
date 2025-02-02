@@ -10,7 +10,7 @@ public class LevelProgression : MonoBehaviour
     [SerializeField] private EnemyControllerChannel enemyControllerChannel;
     private int currentLevel = 1;
     private int enemiesDied = 0;
-    private int progessTreshhold = 20;
+    private int progessTreshhold = 14;
     void Awake()
     {
         // if instance exists, destroy the new instance, else create the singleton
@@ -55,9 +55,14 @@ public class LevelProgression : MonoBehaviour
     private void increaseDifficulty()
     {
         spawnerAttributeSO.defaultEnemies += 2;
-        if (currentLevel % 2 == 0)
+        if (currentLevel % 3 == 0)
         {
             spawnerAttributeSO.eliteEnemies += 1;
+        }
+        if (currentLevel % 2 == 0)
+        {
+            int amount = Random.Range(1, 3);
+            spawnerAttributeSO.rangedEnemies += amount;
         }
         if (currentLevel % 5 == 0)
         {

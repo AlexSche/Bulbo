@@ -7,6 +7,7 @@ public class SpawnerAttributeSO : ScriptableObject
     public float spawnTimer = 5;
     public int defaultEnemies = 4;
     public int eliteEnemies = 0;
+    public int rangedEnemies = 0;
 
     public void changeRadius(int amount)
     {
@@ -24,5 +25,6 @@ public class SpawnerAttributeSO : ScriptableObject
         spawnTimer = 5;
         defaultEnemies = 4;
         eliteEnemies = 0;
+        rangedEnemies = 0;
     }
 }

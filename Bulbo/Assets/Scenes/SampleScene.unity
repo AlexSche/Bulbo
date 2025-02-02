@@ -11015,12 +11015,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3076384366925536863, guid: 5935db30f2fe07045883becb1dc33b8c, type: 3}
     - target: {fileID: 965425107851600841, guid: 2ea71c777d1387648bf074c733074a62, type: 3}
+      propertyPath: rangedSlimeEnemy
+      value: 
+      objectReference: {fileID: 3076384366925536863, guid: 5ea0b552297d2c34590e7b77c5e4dfc4, type: 3}
+    - target: {fileID: 965425107851600841, guid: 2ea71c777d1387648bf074c733074a62, type: 3}
       propertyPath: enemyControllerChannel
       value: 
       objectReference: {fileID: 11400000, guid: a1d2f6fa87cf6f94cba1266f37bcc330, type: 2}
     - target: {fileID: 2792538121042734437, guid: 2ea71c777d1387648bf074c733074a62, type: 3}
       propertyPath: m_Name
-      value: EnemySpawnLocation
+      value: EnemySpawner
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11089,16 +11093,16 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 330585546}
+  - {fileID: 1114001176}
   - {fileID: 832575519}
   - {fileID: 1976543222}
   - {fileID: 2282262038925929977}
   - {fileID: 2116850781}
   - {fileID: 6543476816966062323}
+  - {fileID: 1511945505}
+  - {fileID: 1195283254}
   - {fileID: 914626730}
   - {fileID: 1071786850}
-  - {fileID: 1195283254}
-  - {fileID: 1511945505}
   - {fileID: 754428111}
   - {fileID: 1214274099}
   - {fileID: 162603852}
-  - {fileID: 1114001176}
