@@ -17,7 +17,8 @@ public class Lasereyes : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
-        laserEyesActived.AddListener(activateLaser);
+        activateLaser();
+        //laserEyesActived.AddListener(activateLaser);
     }
 
     public void activateLaser()

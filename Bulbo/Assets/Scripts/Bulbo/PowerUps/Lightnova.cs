@@ -12,6 +12,7 @@ public class Lightnova : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+        activateLightNova();
     }
 
     public void activateLightNova()

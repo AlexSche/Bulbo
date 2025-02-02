@@ -7,6 +7,7 @@ public class UpgradeSelector : MonoBehaviour
     private static UpgradeSelector instance;
     [SerializeField] private UpgradeSO[] upgradeSOs;
     [SerializeField] private PlayerControllerChannel playerControllerChannel;
+    [SerializeField] private PlayerAttributesSO playerAttributesSO;
     [SerializeField] private TMP_Text[] upgradeTexts;
     private List<int> foundNumbers = new List<int>();
 
@@ -22,6 +23,8 @@ public class UpgradeSelector : MonoBehaviour
     }
     void Start() {
         playerControllerChannel.levelChanged += selectUpgrades;
+        playerControllerChannel.levelChanged += addPowerUp;
+
     }
 
     void selectUpgrades()
@@ -52,5 +55,11 @@ public class UpgradeSelector : MonoBehaviour
 
     public void resetList() {
         foundNumbers = new List<int>();
+    }
+
+    public void addPowerUp() {
+        if (playerAttributesSO.level % 5 == 0) {
+            Debug.Log("Added Powerup!!!");
+        }
     }
 }

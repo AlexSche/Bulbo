@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e32f0887f469a7c48848acbcfc72a45f, type: 3}
   m_Name: LaserEyesSO
   m_EditorClassIdentifier: 
-  cooldown: 10
+  cooldown: 5
   radius: 5
-  damage: 30
-  ricochets: 1
+  damage: 50
+  ricochets: 0
   isActive: 0

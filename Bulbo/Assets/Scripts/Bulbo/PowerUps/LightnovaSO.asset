@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e32f0887f469a7c48848acbcfc72a45f, type: 3}
   m_Name: LightnovaSO
   m_EditorClassIdentifier: 
-  cooldown: 10
-  radius: 5
-  damage: 20
-  ricochets: 1
+  cooldown: 7
+  radius: 7
+  damage: 50
+  ricochets: 0
   isActive: 0

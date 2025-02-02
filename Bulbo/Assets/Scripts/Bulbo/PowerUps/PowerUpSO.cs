@@ -33,4 +33,11 @@ public class PowerUpSO : ScriptableObject
     public void activatePowerup() {
         isActive = true;
     }
+
+    public void resetPowerUp() {
+        isActive = false;
+        radius = 5f;
+        damage = 50f;
+        ricochets = 1;
+    }
 }

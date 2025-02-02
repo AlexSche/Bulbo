@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c03ee12e54dcbfa489905dcfbb2bc598, type: 3}
-  m_Name: getLasereyes
+  m_Name: IncLaserBounce
   m_EditorClassIdentifier: 
-  description: '!Shoot lasers dealing 30 damage!'
+  description: Laser hits +1 target
   upgrade:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 9d6bda008beb80848836e1de4fcf21d3, type: 2}
         m_TargetAssemblyTypeName: PowerUpSO, Assembly-CSharp
-        m_MethodName: activatePowerup
+        m_MethodName: increaseRicochets
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
