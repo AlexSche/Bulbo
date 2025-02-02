@@ -3609,6 +3609,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5988bf1ec41a3614399cabe91fee5b65, type: 2}
   - {fileID: 11400000, guid: 39ec519920bc2d34a92d7e51ecd312a7, type: 2}
   - {fileID: 11400000, guid: 088fbb014833afe46a9c786395878f9e, type: 2}
+  - {fileID: 11400000, guid: 1799e3bb9d9d71b4a896d4dc98664963, type: 2}
   playerControllerChannel: {fileID: 11400000, guid: 2805be3dfb0839e4aaee41cc008e565e, type: 2}
   playerAttributesSO: {fileID: 11400000, guid: f20b726637170c54b87d47cc5e7d3e31, type: 2}
   upgradeTexts:
@@ -3647,6 +3648,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7608528da9e9bca44b3d4f55a50d03f4, type: 2}
   - {fileID: 11400000, guid: cfef6eb980bda154eaab642a651e2f0c, type: 2}
   - {fileID: 11400000, guid: d604cff63f3d6c44f99861287fa363f9, type: 2}
+  - {fileID: 11400000, guid: 16c2d72334e11424b80ac95ef4cba964, type: 2}
+  - {fileID: 11400000, guid: 779b0b68d52b41744a14ac2f08716936, type: 2}
   playerControllerChannel: {fileID: 11400000, guid: 2805be3dfb0839e4aaee41cc008e565e, type: 2}
   playerAttributesSO: {fileID: 11400000, guid: f20b726637170c54b87d47cc5e7d3e31, type: 2}
   powerUpAnnouncement: {fileID: 1488285917}
