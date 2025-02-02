@@ -23,7 +23,6 @@ public class UpgradeSelector : MonoBehaviour
     }
     void Start() {
         playerControllerChannel.levelChanged += selectUpgrades;
-        playerControllerChannel.levelChanged += addPowerUp;
 
     }
 
@@ -35,8 +34,6 @@ public class UpgradeSelector : MonoBehaviour
             int randomNumber = Random.Range(0, upgradeSOs.Length);
             if (!foundNumbers.Contains(randomNumber))
             {
-                //Debug.Log("Found this upgrade number: " + randomNumber);
-                //Debug.Log("Displaying: " + randomNumber + "at position: " + zeroOneTwo);
                 foundNumbers.Add(randomNumber);
                 displayUpgradesInUI(zeroOneTwo);
                 zeroOneTwo++;
@@ -55,11 +52,5 @@ public class UpgradeSelector : MonoBehaviour
 
     public void resetList() {
         foundNumbers = new List<int>();
-    }
-
-    public void addPowerUp() {
-        if (playerAttributesSO.level % 5 == 0) {
-            Debug.Log("Added Powerup!!!");
-        }
     }
 }

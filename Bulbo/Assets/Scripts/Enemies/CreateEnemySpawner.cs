@@ -39,7 +39,6 @@ public class CreateEnemySpawner : MonoBehaviour
             Vector3 spawnPos = determineSpawnLocation(Vector3.zero, spawnerAttributeSO.radius);
             for (int i = 0; i < spawnerAttributeSO.defaultEnemies; i++)
             {
-                Debug.Log("Default: " + spawnerAttributeSO.defaultEnemies);
                 if (i % 4 == 0)
                 {
                     spawnPos = determineSpawnLocation(Vector3.zero, spawnerAttributeSO.radius);
@@ -50,7 +49,6 @@ public class CreateEnemySpawner : MonoBehaviour
             }
             for (int i = 0; i < spawnerAttributeSO.eliteEnemies; i++)
             {
-                Debug.Log("Elite: " + spawnerAttributeSO.eliteEnemies);
                 if (i % 4 == 0)
                 {
                     spawnPos = determineSpawnLocation(Vector3.zero, spawnerAttributeSO.radius);

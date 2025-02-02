@@ -1,6 +1,5 @@
 using System.Collections;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PowerUpSelector : MonoBehaviour
@@ -55,16 +54,14 @@ public class PowerUpSelector : MonoBehaviour
             if (playerAttributesSO.level == 5)
             {
                 selectFixedPowerUp(0);
-                Debug.Log("Added Eyes");
                 return;
             }
             if (playerAttributesSO.level == 10)
             {
                 selectFixedPowerUp(1);
-                Debug.Log("Added Nova");
                 return;
             }
-            Debug.Log("Added random Powerup!!!");
+            selectPowerUp();
         }
     }
 }

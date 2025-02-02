@@ -68,6 +68,7 @@ public class LevelProgression : MonoBehaviour
 
     public void resetEnemies()
     {
+        currentLevel = 1;
         enemiesDied = 0;
     }
 }

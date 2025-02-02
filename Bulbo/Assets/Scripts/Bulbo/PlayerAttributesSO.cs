@@ -91,6 +91,6 @@ public class PlayerAttributesSO : ScriptableObject
     bulletAliveTimer = 10;
     bulletLightRadius = 2;
     reloadSpeed = 2;
-    lightRadius = 5;
+    lightRadius = 15;
     }
 }
