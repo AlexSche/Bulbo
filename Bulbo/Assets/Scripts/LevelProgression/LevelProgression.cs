@@ -1,9 +1,12 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class LevelProgression : MonoBehaviour
 {
     private static LevelProgression instance;
+    [SerializeField] private TMP_Text zoneLevel;
+    [SerializeField] private TMP_Text killCount;
     [SerializeField] private PlayerAttributesSO playerAttributesSO;
     [SerializeField] private SpawnerAttributeSO spawnerAttributeSO;
     [SerializeField] private PlayerControllerChannel playerControllerChannel;
@@ -31,6 +34,7 @@ public class LevelProgression : MonoBehaviour
     void addDeadEnemey(GameObject enemy, float xpWorth)
     {
         enemiesDied++;
+        killCount.text = "Kills: " + enemiesDied;
     }
 
     IEnumerator progressLevel()
@@ -50,6 +54,7 @@ public class LevelProgression : MonoBehaviour
     {
         currentLevel++;
         progessTreshhold *= 3;
+        zoneLevel.text = "Zone: " + currentLevel;
     }
 
     private void increaseDifficulty()
@@ -75,5 +80,7 @@ public class LevelProgression : MonoBehaviour
     {
         currentLevel = 1;
         enemiesDied = 0;
+        zoneLevel.text = "Zone: " + currentLevel;
+        killCount.text = "Kills: " + enemiesDied;
     }
 }
