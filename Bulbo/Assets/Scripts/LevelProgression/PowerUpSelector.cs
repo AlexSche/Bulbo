@@ -49,14 +49,14 @@ public class PowerUpSelector : MonoBehaviour
 
     public void addPowerUp()
     {
-        if (playerAttributesSO.level % 5 == 0)
+        if (playerAttributesSO.level % 3 == 0)
         {
-            if (playerAttributesSO.level == 5)
+            if (playerAttributesSO.level == 3)
             {
                 selectFixedPowerUp(0);
                 return;
             }
-            if (playerAttributesSO.level == 10)
+            if (playerAttributesSO.level == 6)
             {
                 selectFixedPowerUp(1);
                 return;

@@ -80,6 +80,7 @@ public class LevelProgression : MonoBehaviour
     {
         currentLevel = 1;
         enemiesDied = 0;
+        progessTreshhold = 14;
         zoneLevel.text = "Zone: " + currentLevel;
         killCount.text = "Kills: " + enemiesDied;
     }
