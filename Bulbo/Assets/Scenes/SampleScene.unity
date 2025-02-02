@@ -4189,6 +4189,7 @@ MonoBehaviour:
   spawnerAttributeSO: {fileID: 11400000, guid: 5cdde1acc17ce614ea173675e61dc60e, type: 2}
   laserEyesSO: {fileID: 11400000, guid: 9d6bda008beb80848836e1de4fcf21d3, type: 2}
   lightNovaSO: {fileID: 11400000, guid: 2f3c28b28f4daa84aa0a0999d03c1a30, type: 2}
+  levelProgression: {fileID: 1511945506}
 --- !u!1 &914626727
 GameObject:
   m_ObjectHideFlags: 0

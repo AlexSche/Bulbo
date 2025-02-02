@@ -87,12 +87,10 @@ public class CharacterMovement : MonoBehaviour
 
     public void takeDamage(int damage)
     {
-        Debug.Log("Current: " + currentHealth + "MaxHealth: " + playerAttributesSO.hitPoints);
         currentHealth -= damage;
         playerControllerChannel.healthChanged?.Invoke(playerAttributesSO.hitPoints, currentHealth);
         if (currentHealth <= 0)
         {
-            Debug.Log("Player died");
             playerDied();
         }
     }
@@ -116,7 +114,6 @@ public class CharacterMovement : MonoBehaviour
 
     public void resetHealth()
     {
-        Debug.Log("Reset Health");
         currentHealth = playerAttributesSO.hitPoints;
         playerControllerChannel.healthChanged?.Invoke(playerAttributesSO.hitPoints, currentHealth);
     }

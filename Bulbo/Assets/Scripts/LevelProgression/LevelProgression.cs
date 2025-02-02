@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class LevelProgression : MonoBehaviour
 {
+    private static LevelProgression instance;
     [SerializeField] private PlayerAttributesSO playerAttributesSO;
     [SerializeField] private SpawnerAttributeSO spawnerAttributeSO;
     [SerializeField] private PlayerControllerChannel playerControllerChannel;
@@ -10,21 +11,21 @@ public class LevelProgression : MonoBehaviour
     private int currentLevel = 1;
     private int enemiesDied = 0;
     private int progessTreshhold = 20;
+    void Awake()
+    {
+        // if instance exists, destroy the new instance, else create the singleton
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
     void Start()
     {
-        //playerControllerChannel.levelChanged += increaseStats;
         enemyControllerChannel.died += addDeadEnemey;
         StartCoroutine(progressLevel());
-    }
-
-    void increaseStats()
-    {
-        playerAttributesSO.changeHitpoints(10);
-        playerAttributesSO.changeBulletAliveTimer(1);
-        playerAttributesSO.changeDamage(1);
-        playerAttributesSO.changeCharacterSpeed(1);
-        playerAttributesSO.reduceReloadSpeed(0.1f);
-        playerAttributesSO.changeBulletLightRadius(1);
     }
 
     void addDeadEnemey(GameObject enemy, float xpWorth)
@@ -63,5 +64,10 @@ public class LevelProgression : MonoBehaviour
             //spawn chargers
         }
         spawnerAttributeSO.changeSpawnTimer(-0.05f);
+    }
+
+    public void resetEnemies()
+    {
+        enemiesDied = 0;
     }
 }
