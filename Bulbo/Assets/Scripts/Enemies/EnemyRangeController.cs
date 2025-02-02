@@ -28,7 +28,6 @@ public class EnemyRangeController : EnemyController
 
     public void shootAtCurrentPlayerPosition(Vector3 currentPlayerPosition)
     {
-        Debug.Log("Shooting!!! at: " + currentPlayerPosition);
         GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPosition.transform.position, transform.rotation);
         Projectile projectileSkript = projectile.GetComponent<Projectile>();
         projectileSkript.shootAtPosition(currentPlayerPosition);

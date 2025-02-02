@@ -87,6 +87,7 @@ public class CharacterMovement : MonoBehaviour
 
     public void takeDamage(int damage)
     {
+        Debug.Log("Take damage");
         currentHealth -= damage;
         playerControllerChannel.healthChanged?.Invoke(playerAttributesSO.hitPoints, currentHealth);
         if (currentHealth <= 0)
