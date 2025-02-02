@@ -3645,6 +3645,8 @@ MonoBehaviour:
   powerUpSOs:
   - {fileID: 11400000, guid: 7afb2d2422867d242a3de8c587b0e83e, type: 2}
   - {fileID: 11400000, guid: 7608528da9e9bca44b3d4f55a50d03f4, type: 2}
+  - {fileID: 11400000, guid: cfef6eb980bda154eaab642a651e2f0c, type: 2}
+  - {fileID: 11400000, guid: d604cff63f3d6c44f99861287fa363f9, type: 2}
   playerControllerChannel: {fileID: 11400000, guid: 2805be3dfb0839e4aaee41cc008e565e, type: 2}
   playerAttributesSO: {fileID: 11400000, guid: f20b726637170c54b87d47cc5e7d3e31, type: 2}
   powerUpAnnouncement: {fileID: 1488285917}

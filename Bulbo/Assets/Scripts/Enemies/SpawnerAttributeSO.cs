@@ -20,6 +20,7 @@ public class SpawnerAttributeSO : ScriptableObject
 
     public void resetAllStats()
     {
+        Debug.Log("reset spawner!!!");
         radius = 15;
         spawnTimer = 5;
         defaultEnemies = 4;
