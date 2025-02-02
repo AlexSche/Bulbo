@@ -1,35 +1,31 @@
 using System.Collections;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] private EnemyAttributeSO enemyAttributeSO;
-    [SerializeField] private PlayerAttributesSO playerAttributesSO;
-    [SerializeField] private PowerUpSO laserEyesSO, LightnovaSO;
-    [SerializeField] private FloatingHealthbar floatingHealthbar;
-    [SerializeField] private new ParticleSystem particleSystem;
-    [SerializeField] private Shader dissolveShader;
-    private int dissolveAmount = Shader.PropertyToID("_DissolveAmount");
-    [SerializeField] private UnityEvent<GameObject, float> died;
-    [SerializeField] private UnityEvent<FloatingHealthbar, float, float> changedHealth;
-    [SerializeField] private UnityEvent<GameObject> spawned;
-    [SerializeField] private UnityEvent tookDamage;
-    [SerializeField] private UnityEvent<int> attackedPlayer;
-    private GameObject player;
-    private float currentHealth;
-    private float speed;
-    private float attackDamage;
-    private Animator animator;
-    private Vector3 targetPosition = Vector3.zero;
-    private Coroutine damageCoroutine = null;
-    private bool isDead = false;
-    private bool isDissolving = false;
+    [SerializeField] protected EnemyAttributeSO enemyAttributeSO;
+    [SerializeField] protected PlayerAttributesSO playerAttributesSO;
+    [SerializeField] protected EnemyControllerChannel enemyControllerChannel;
+    [SerializeField] protected PlayerControllerChannel playerControllerChannel;
+    [SerializeField] protected PowerUpSO laserEyesSO, LightnovaSO;
+    [SerializeField] protected FloatingHealthbar floatingHealthbar;
+    [SerializeField] protected new ParticleSystem particleSystem;
+    [SerializeField] protected Shader dissolveShader;
+    protected int dissolveAmount = Shader.PropertyToID("_DissolveAmount");
+    protected GameObject player;
+    protected float currentHealth;
+    protected float speed;
+    protected float attackDamage;
+    protected Animator animator;
+    protected Vector3 targetPosition = Vector3.zero;
+    protected Coroutine damageCoroutine = null;
+    protected bool isDead = false;
+    protected bool isDissolving = false;
 
     void Awake()
     {
-        spawned?.Invoke(this.gameObject);
+        enemyControllerChannel.enemySpawned?.Invoke(this.gameObject);
     }
     void Start()
     {
@@ -57,7 +53,7 @@ public class EnemyController : MonoBehaviour
         targetPosition = player.transform.position;
     }
 
-    IEnumerator moveEnemy()
+    public virtual IEnumerator moveEnemy()
     {
         while (Vector3.Distance(transform.position, targetPosition) > 1f && !isDead)
         {
@@ -91,7 +87,7 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            attackedPlayer?.Invoke(enemyAttributeSO.attackDamage);
+            playerControllerChannel.attackedByEnemy?.Invoke(enemyAttributeSO.attackDamage);
         }
     }
 
@@ -122,11 +118,11 @@ public class EnemyController : MonoBehaviour
                 particleSystem.Play();
             }
             //changedHealth?.Invoke(floatingHealthbar, enemyAttributeSO.health, currentHealth);
-            tookDamage?.Invoke();
+            enemyControllerChannel.tookDamage?.Invoke();
         }
         else
         {
-            changedHealth?.Invoke(floatingHealthbar, enemyAttributeSO.health, 0);
+            enemyControllerChannel.healthChanged?.Invoke(floatingHealthbar, enemyAttributeSO.health, 0);
             die();
         }
     }
@@ -135,7 +131,7 @@ public class EnemyController : MonoBehaviour
     {
         if (!isDead)
         {
-            died?.Invoke(gameObject, enemyAttributeSO.xpWorth);
+            enemyControllerChannel.died?.Invoke(gameObject, enemyAttributeSO.xpWorth);
         }
         isDead = true;
     }
