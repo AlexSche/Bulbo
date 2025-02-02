@@ -14,7 +14,7 @@ public class LevelUI : MonoBehaviour
         playerControllerChannel.levelChanged += setLevelToText;
     }
 
-    void setLevelToText() {
+    public void setLevelToText() {
         currentLevel = playerAttributesSO.level.ToString();
         string displayText = level + currentLevel;
         level_text.text = displayText;

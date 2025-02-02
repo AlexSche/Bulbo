@@ -6509,6 +6509,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2041789604}
+        m_TargetAssemblyTypeName: SceneSetupCleaner, Assembly-CSharp
+        m_MethodName: correctlyDisplayUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1290063482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7996,18 +8008,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1971644610}
-        m_TargetAssemblyTypeName: CharacterMovement, Assembly-CSharp
-        m_MethodName: resetHealth
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1214274101}
         m_TargetAssemblyTypeName: DiedMenu, Assembly-CSharp
         m_MethodName: restartScene
@@ -9910,17 +9910,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1971644610 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1773598672687928008, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
-  m_PrefabInstance: {fileID: 2282262038925929977}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 198790904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7625a5c3f7fc6a649b3dbcc85098e223, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1975654832
 GameObject:
   m_ObjectHideFlags: 0
@@ -10338,6 +10327,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2041789603}
+  - component: {fileID: 2041789604}
   m_Layer: 5
   m_Name: PlayerStatus
   m_TagString: Untagged
@@ -10366,6 +10356,22 @@ RectTransform:
   m_AnchoredPosition: {x: 22.5, y: -15}
   m_SizeDelta: {x: 200, y: 70}
   m_Pivot: {x: 0, y: 1}
+--- !u!114 &2041789604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041789602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e85b8779038d9b47a23ee2ba6612df5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealthUI: {fileID: 238487317}
+  playerXPUI: {fileID: 633752376}
+  levelUI: {fileID: 549771408}
+  playerAttributesSO: {fileID: 11400000, guid: f20b726637170c54b87d47cc5e7d3e31, type: 2}
 --- !u!1 &2052979324
 GameObject:
   m_ObjectHideFlags: 0
