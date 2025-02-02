@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitPoints: 100
   level: 1
-  xp: 0
+  xp: 30
   requiredXP: 35
   damage: 20
   tickSpeed: 2

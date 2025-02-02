@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c03ee12e54dcbfa489905dcfbb2bc598, type: 3}
   m_Name: characterSpeed
   m_EditorClassIdentifier: 
-  description: Speed +5
+  description: Speed +3
   upgrade:
     m_PersistentCalls:
       m_Calls:
@@ -24,7 +24,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0.5
+          m_FloatArgument: 0.3
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2

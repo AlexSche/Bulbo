@@ -1563,7 +1563,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0.03137255, a: 0}
+  m_BackGroundColor: {r: 0.078431375, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -10917,6 +10917,34 @@ PrefabInstance:
     - target: {fileID: 2153592842020557526, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
       propertyPath: m_Name
       value: Bulbo
+      objectReference: {fileID: 0}
+    - target: {fileID: 7259975504241526229, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
+      propertyPath: m_Range
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7259975504241526229, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7259975504241526229, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
+      propertyPath: m_Color.g
+      value: 0.89772016
+      objectReference: {fileID: 0}
+    - target: {fileID: 7259975504241526229, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
+      propertyPath: m_Color.r
+      value: 0.69803923
+      objectReference: {fileID: 0}
+    - target: {fileID: 7259975504241526229, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
+      propertyPath: m_Intensity
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 7259975504241526229, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
+      propertyPath: m_SpotAngle
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 7259975504241526229, guid: ad7d1699ee61ab3469e305ffc82a8605, type: 3}
+      propertyPath: m_InnerSpotAngle
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
