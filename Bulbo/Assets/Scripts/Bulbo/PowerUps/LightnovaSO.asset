@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: LightnovaSO
   m_EditorClassIdentifier: 
   cooldown: 7
-  radius: 7
+  radius: 5
   damage: 50
-  ricochets: 0
+  ricochets: 1
+  amount: 1
   isActive: 0

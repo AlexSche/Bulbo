@@ -12,36 +12,40 @@ public class Lightnova : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
-        activateLightNova();
+        StartCoroutine(activateLightNova());
     }
 
-    public void activateLightNova()
-    {
-        StartCoroutine(castLightNova());
-    }
-
-    IEnumerator castLightNova()
+    IEnumerator activateLightNova()
     {
         while (true)
         {
             yield return new WaitForSeconds(powerUpSO.cooldown);
             if (powerUpSO.isActive)
             {
-                Vector3 castOnPosition = new Vector3(Random.Range(0, 15), 15, Random.Range(0, 15));
-                GameObject lightNova = Instantiate(lightNovaPrefab, castOnPosition, Quaternion.Euler(90, 0, 0));
-                Light light = lightNova.GetComponent<Light>();
-                SphereCollider sphereCollider = lightNova.GetComponent<SphereCollider>();
-                while (light.spotAngle < powerUpSO.radius * 10)
+                for (int i = 0; i < powerUpSO.amount; i++)
                 {
-                    light.spotAngle += 0.05f;
-                    if (sphereCollider.radius * 10 < light.spotAngle)
-                    {
-                        sphereCollider.radius += 0.05f / 10;
-                    }
-                    yield return new WaitForNextFrameUnit();
+                    StartCoroutine(castLightNova());
+                    yield return new WaitForSeconds(0.2f);
                 }
-                Destroy(lightNova);
             }
         }
+    }
+
+    IEnumerator castLightNova()
+    {
+        Vector3 castOnPosition = new Vector3(Random.Range(0, 15), 15, Random.Range(0, 15));
+        GameObject lightNova = Instantiate(lightNovaPrefab, castOnPosition, Quaternion.Euler(90, 0, 0));
+        Light light = lightNova.GetComponent<Light>();
+        SphereCollider sphereCollider = lightNova.GetComponent<SphereCollider>();
+        while (light.spotAngle < powerUpSO.radius * 10)
+        {
+            light.spotAngle += 0.05f;
+            if (sphereCollider.radius * 10 < light.spotAngle)
+            {
+                sphereCollider.radius += 0.05f / 10;
+            }
+            yield return new WaitForNextFrameUnit();
+        }
+        Destroy(lightNova);
     }
 }
