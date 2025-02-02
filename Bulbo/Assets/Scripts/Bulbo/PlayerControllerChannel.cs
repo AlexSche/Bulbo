@@ -21,9 +21,6 @@ public class PlayerControllerChannel : ScriptableObject
     public void changeHealth(float maxValue, float currentValue)
     {
         healthChanged?.Invoke(maxValue, currentValue);
-        if (currentValue <= 0) {
-            playerDied?.Invoke();
-        }
     }
 
     public void changeXP(float amountNeeded, float xpReceived)
@@ -38,5 +35,9 @@ public class PlayerControllerChannel : ScriptableObject
     
     public void enemyAttacked(int damage) {
         attackedByEnemy?.Invoke(damage);
+    }
+
+    public void playerDiedCB() {
+        playerDied?.Invoke();
     }
 }

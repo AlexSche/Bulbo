@@ -7,10 +7,6 @@ public class CharacterMovement : MonoBehaviour
 {
     [SerializeField] private EnemyControllerChannel enemyControllerChannel;
     [SerializeField] private PlayerControllerChannel playerControllerChannel;
-    //[SerializeField] private ShootingBar shootingBar;
-    [SerializeField] private UnityEvent<float, float> onHealthChanged;
-    [SerializeField] private UnityEvent<float, float> onXPChanged;
-    [SerializeField] private UnityEvent onLevelChanged;
     PlayerInput playerInput;
     InputAction moveAction;
     public PlayerAttributesSO playerAttributesSO;
@@ -20,9 +16,10 @@ public class CharacterMovement : MonoBehaviour
     private CharacterController characterController;
     private float completeShootAnimationSpeed = 0;
     private float shootTimer = 0;
-    private int currentHealth = 100;
+    public int currentHealth = 100;
 
-    void Awake() {
+    void Awake()
+    {
         currentHealth = playerAttributesSO.hitPoints;
     }
     void Start()
@@ -36,7 +33,6 @@ public class CharacterMovement : MonoBehaviour
         enemyControllerChannel.died += getXP;
         playerControllerChannel.attackedByEnemy += takeDamage;
         moveAction = playerInput.actions.FindAction("Move");
-
         StartCoroutine(automaticShooting(playerAttributesSO.reloadSpeed));
     }
 
@@ -91,8 +87,20 @@ public class CharacterMovement : MonoBehaviour
 
     public void takeDamage(int damage)
     {
+        Debug.Log("Current: " + currentHealth + "MaxHealth: " + playerAttributesSO.hitPoints);
         currentHealth -= damage;
-        onHealthChanged?.Invoke(playerAttributesSO.hitPoints, currentHealth);
+        playerControllerChannel.healthChanged?.Invoke(playerAttributesSO.hitPoints, currentHealth);
+        if (currentHealth <= 0)
+        {
+            Debug.Log("Player died");
+            playerDied();
+        }
+    }
+
+    public void playerDied()
+    {
+        playerControllerChannel.playerDied?.Invoke();
+        currentHealth = playerAttributesSO.hitPoints;
     }
 
     public void getXP(GameObject enemy, float xp)
@@ -101,13 +109,15 @@ public class CharacterMovement : MonoBehaviour
         if (playerAttributesSO.xp >= playerAttributesSO.requiredXP)
         {
             playerAttributesSO.levelUp();
-            onLevelChanged?.Invoke();
+            playerControllerChannel.levelChanged?.Invoke();
         }
-        onXPChanged?.Invoke(playerAttributesSO.requiredXP, playerAttributesSO.xp);
+        playerControllerChannel.xpChanged?.Invoke(playerAttributesSO.requiredXP, playerAttributesSO.xp);
     }
 
-    public void resetHealth() {
+    public void resetHealth()
+    {
+        Debug.Log("Reset Health");
         currentHealth = playerAttributesSO.hitPoints;
-        onHealthChanged?.Invoke(playerAttributesSO.hitPoints, currentHealth);
+        playerControllerChannel.healthChanged?.Invoke(playerAttributesSO.hitPoints, currentHealth);
     }
 }
